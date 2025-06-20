@@ -60,14 +60,10 @@ const RegistrationScreen = () => {
           </View>
 
           <View style={styles.formContainer}>
-            <Text style={styles.title}>Create Your Account</Text>
-            <Text style={styles.subtitle}>
-              Create your account to start your journey
-            </Text>
+            <Text style={styles.subtitle}>Create your account</Text>
 
             {/* Fullname */}
             <View style={styles.inputContainer}>
-              <Text style={styles.label}>Full Name</Text>
               <TextInput
                 style={styles.input}
                 placeholder='Enter your full name'
@@ -79,7 +75,6 @@ const RegistrationScreen = () => {
 
             {/* Email */}
             <View style={styles.inputContainer}>
-              <Text style={styles.label}>Email</Text>
               <TextInput
                 style={styles.input}
                 placeholder='Enter your email address'
@@ -92,7 +87,6 @@ const RegistrationScreen = () => {
 
             {/* Password */}
             <View style={styles.inputContainer}>
-              <Text style={styles.label}>Password</Text>
               <View style={styles.passwordWrapper}>
                 <TextInput
                   style={styles.input}
@@ -130,7 +124,10 @@ const RegistrationScreen = () => {
             </View>
 
             {/* Sign Up Button */}
-            <TouchableOpacity style={styles.signupBtn}>
+            <TouchableOpacity
+              style={styles.signupBtn}
+              onPress={() => router.push('/registration/VerificationScreen')}
+            >
               <Text style={styles.signupText}>Sign Up</Text>
             </TouchableOpacity>
 
@@ -139,7 +136,9 @@ const RegistrationScreen = () => {
               Already have an account?{' '}
               <Text
                 style={styles.link}
-                onPress={() => router.push('/registration/LoginScreen')}
+                onPress={() =>
+                  router.push('/registration/RegistrationOptionScreen')
+                }
               >
                 Sign in
               </Text>
@@ -171,7 +170,7 @@ const styles = StyleSheet.create({
     height: 160
   },
   formContainer: {
-    backgroundColor: 'rgba(255,255,255,0.95)',
+    // backgroundColor: 'rgba(255,255,255,0.95)',
     marginHorizontal: width * 0.05,
     borderRadius: 20,
     padding: 22,
@@ -191,7 +190,9 @@ const styles = StyleSheet.create({
   subtitle: {
     textAlign: 'center',
     color: '#666',
-    fontSize: 14,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    fontSize: 16,
     marginBottom: 20
   },
   inputContainer: {
@@ -205,7 +206,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#eee',
-    padding: 12,
+    padding: 16.5,
     borderRadius: 10,
     fontSize: 16,
     color: '#000'
@@ -225,7 +226,8 @@ const styles = StyleSheet.create({
   },
   checkboxText: {
     marginLeft: 10,
-    color: '#444',
+    color: '#fff',
+    fontWeight: '900',
     flexShrink: 1
   },
   link: {

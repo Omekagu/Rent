@@ -82,7 +82,10 @@ const RegistrationOptionScreen = () => {
           </View>
 
           {/* Sign In Button */}
-          <TouchableOpacity style={styles.signInButton}>
+          <TouchableOpacity
+            style={styles.signInButton}
+            onPress={() => router.push('/(tabs)/Home')}
+          >
             <Text style={styles.signInText}>Sign in</Text>
           </TouchableOpacity>
 
