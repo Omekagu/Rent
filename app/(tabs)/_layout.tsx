@@ -1,6 +1,6 @@
 // app/(tabs)/_layout.tsx
-import { Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
+import { Tabs } from 'expo-router'
 import { Animated, StyleSheet } from 'react-native'
 
 export default function _layout () {
@@ -44,7 +44,7 @@ export default function _layout () {
                 name={iconName as any}
                 size={20}
                 style={{ marginBottom: -3 }}
-                color={focused ? '#2a9aa8' : '#fff'}
+                color={focused ? '#fc8403' : '#fff'}
               />
             </Animated.View>
           )

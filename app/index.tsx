@@ -1,48 +1,47 @@
+import { router } from 'expo-router'
 import React from 'react'
 import {
-  StyleSheet,
-  View,
-  Text,
+  Dimensions,
   ImageBackground,
-  TouchableOpacity
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import { useRouter } from 'expo-router'
 
-const index = () => {
-  const router = useRouter()
+const { width, height } = Dimensions.get('window')
 
+const HOUSE_IMAGE = {
+  uri: 'https://images.pexels.com/photos/2980955/pexels-photo-2980955.jpeg'
+}
+
+export default function index ({ navigation }: { navigation: any }) {
   return (
-    <View style={styles.container}>
+    <View style={styles.root}>
+      <StatusBar barStyle='light-content' backgroundColor='#232222' />
       <ImageBackground
-        source={{
-          uri: 'https://images.unsplash.com/photo-1585484930098-0c978ecd8a68?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGFpcnBsYW5lfGVufDB8fDB8fHww'
-        }}
-        style={styles.backgroundImage}
-        resizeMode='cover'
+        source={HOUSE_IMAGE}
+        style={styles.background}
+        imageStyle={styles.backgroundImage}
       >
-        <View style={styles.overlay}>
-          {/* Headline */}
-          <View style={styles.headingContainer}>
-            <Text style={styles.headingText}>
-              SAFE FLIGHT {'\n'}
-              <Text style={styles.highlighted}>SAFE THNKING</Text>
-              {'\n'}SAFE FEELING.
-            </Text>
-          </View>
-
-          {/* Subtext */}
-          <Text style={styles.subText}>
-            Streamlines where{'\n'}reservations with a{'\n'}wide range hassle.
-          </Text>
-
-          {/* Start Button */}
+        {/* Top bar */}
+        <View style={styles.topBar}>
           <TouchableOpacity
-            style={styles.startButton}
-            onPress={() => router.push('/registration/OnboardingPage')}
-            // onPress={() => router.push('/(tabs)/Home')}
+            style={styles.arrowButton}
+            onPress={() => router.push('/registration/OnboardingScreen')}
+            activeOpacity={0.7}
           >
-            <Text style={styles.startButtonText}>START</Text>
+            <Text style={styles.arrowIcon}>→</Text>
           </TouchableOpacity>
+        </View>
+
+        {/* Bottom overlay */}
+        <View style={styles.bottomOverlay}>
+          <Text style={styles.title}>HOUSE {'\n'}HUNTER</Text>
+          <Text style={styles.subtitle}>
+            Let us help you find your dream home.
+          </Text>
         </View>
       </ImageBackground>
     </View>
@@ -50,55 +49,83 @@ const index = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
+  root: {
+    flex: 1,
+    backgroundColor: '#232222'
+  },
+  background: {
+    width: width,
+    height: height,
+    justifyContent: 'space-between'
   },
   backgroundImage: {
-    flex: 1,
-    width: '100%',
-    height: '100%'
+    borderRadius: 36,
+    resizeMode: 'cover'
   },
-  overlay: {
-    flex: 1,
-    justifyContent: 'space-between',
-    paddingVertical: 60,
-    paddingHorizontal: 20
-  },
-  headingContainer: {
-    marginTop: 40
-  },
-  headingText: {
-    fontSize: 25,
-    fontWeight: '800',
-    fontFamily: 'Poppins_800ExtraBold',
-    color: '#000',
-    lineHeight: 42
-  },
-  highlighted: {
-    backgroundColor: '#2a9aa8',
-    color: '#fff',
-    paddingHorizontal: 6
-  },
-  subText: {
-    fontSize: 14,
-    color: '#fff',
-    marginBottom: 20,
-    lineHeight: 20
-  },
-  startButton: {
-    backgroundColor: '#2a9aa8',
-    width: 100,
-    height: 70,
-    borderRadius: 35,
-    justifyContent: 'center',
-    alignItems: 'center',
+  topBar: {
     alignSelf: 'flex-end',
-    marginBottom: 30
+    marginTop: 50,
+    marginHorizontal: 20
   },
-  startButtonText: {
-    color: '#000',
-    fontWeight: '900'
+  progressWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6
+  },
+  progressDot: {
+    width: 22,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#E0DFDE33',
+    marginRight: 6
+  },
+  progressDotActive: {
+    backgroundColor: '#fff',
+    width: 30
+  },
+  arrowButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#00000033'
+  },
+  arrowIcon: {
+    alignSelf: 'center',
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    transform: [{ rotate: '0deg' }]
+  },
+  bottomOverlay: {
+    width: width,
+    paddingHorizontal: 30,
+    paddingBottom: 54,
+    backgroundColor: 'rgba(0,0,0,0.05)'
+  },
+  star: {
+    fontSize: 36,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginBottom: 8,
+    marginLeft: -4
+  },
+  title: {
+    color: '#fff',
+    fontSize: 32,
+    fontWeight: '800',
+    letterSpacing: 1.2,
+    lineHeight: 36,
+    marginBottom: 13
+  },
+  subtitle: {
+    color: '#fff',
+    fontSize: 15,
+    opacity: 0.95,
+    fontWeight: '400',
+    lineHeight: 21
   }
 })
-
-export default index

@@ -1,16 +1,16 @@
+import { Fontisto, MaterialIcons } from '@expo/vector-icons' // or react-native-vector-icons/Ionicons
+import { router } from 'expo-router'
 import React, { useState } from 'react'
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  TextInput,
-  StyleSheet,
   Pressable,
-  StatusBar
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import { Fontisto, MaterialIcons } from '@expo/vector-icons' // or react-native-vector-icons/Ionicons
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { router } from 'expo-router'
 
 const ManualBookingScreen = () => {
   const [tripType, setTripType] = useState('one-way')
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     marginBottom: 12
   },
   searchButton: {
-    backgroundColor: '#2a9aa8',
+    backgroundColor: '#fc8403',
     padding: 20,
     borderRadius: 18,
     alignItems: 'center',

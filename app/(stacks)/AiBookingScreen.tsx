@@ -1,16 +1,16 @@
+import { Ionicons } from '@expo/vector-icons'
 import React from 'react'
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
   FlatList,
   KeyboardAvoidingView,
-  Platform
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Ionicons } from '@expo/vector-icons'
 
 const messages = [
   {
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     maxWidth: '75%'
   },
   aiBubble: {
-    backgroundColor: '#2a9aa8',
+    backgroundColor: '#fc8403',
     alignSelf: 'flex-start'
   },
   userBubble: {
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   sendButton: {
-    backgroundColor: '#2a9aa8',
+    backgroundColor: '#fc8403',
     padding: 10,
     borderRadius: 30
   }

@@ -1,196 +1,227 @@
-import React, { useState } from 'react'
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-  ScrollView,
-  StatusBar,
-  Platform,
-  ImageBackground
-} from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import Checkbox from 'expo-checkbox'
 import { router } from 'expo-router'
+import React, { useState } from 'react'
+import {
+  Dimensions,
+  Image,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native'
+
+const { width } = Dimensions.get('window')
 
 const RegistrationScreen = () => {
   const [isChecked, setChecked] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
+  const [email, setEmail] = useState('')
+  const [fullname, setFullname] = useState('')
+  const [password, setPassword] = useState('')
 
   return (
     <ImageBackground
       source={{
-        uri: 'https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&w=600' // Use your preferred background
+        uri: 'https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&w=600'
       }}
-      resizeMode='cover'
       style={styles.background}
+      resizeMode='cover'
     >
-      <ScrollView contentContainerStyle={styles.container}>
-        <StatusBar
-          barStyle='light-content'
-          backgroundColor='transparent'
-          translucent
-        />
-
-        {/* Header Image */}
-        <View style={styles.header}>
-          <Image
-            source={{
-              uri: 'https://cdn3d.iconscout.com/3d/premium/thumb/education-7065687-5756963.png'
-            }}
-            style={styles.headerImage}
-            resizeMode='contain'
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        style={{ flex: 1 }}
+      >
+        <ScrollView
+          contentContainerStyle={styles.container}
+          keyboardShouldPersistTaps='handled'
+        >
+          <StatusBar
+            translucent
+            backgroundColor='transparent'
+            barStyle='light-content'
           />
-        </View>
 
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Create Your Account</Text>
-          <Text style={styles.subtitle}>
-            Create your account to start your journey
-          </Text>
-
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Full Name</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter your full name'
+          {/* Header image */}
+          <View style={styles.header}>
+            <Image
+              source={{
+                uri: 'https://cdn3d.iconscout.com/3d/premium/thumb/education-7065687-5756963.png'
+              }}
+              style={styles.headerImage}
+              resizeMode='contain'
             />
           </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Email</Text>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter your email address'
-              keyboardType='email-address'
-            />
-          </View>
+          <View style={styles.formContainer}>
+            <Text style={styles.title}>Create Your Account</Text>
+            <Text style={styles.subtitle}>
+              Create your account to start your journey
+            </Text>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.label}>Password</Text>
-            <View style={styles.passwordWrapper}>
+            {/* Fullname */}
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>Full Name</Text>
               <TextInput
                 style={styles.input}
-                placeholder='Enter your password'
-                secureTextEntry={!passwordVisible}
+                placeholder='Enter your full name'
+                placeholderTextColor='#999'
+                value={fullname}
+                onChangeText={setFullname}
               />
-              <TouchableOpacity
-                onPress={() => setPasswordVisible(!passwordVisible)}
-                style={styles.eyeIcon}
-              >
-                <Ionicons
-                  name={passwordVisible ? 'eye' : 'eye-off'}
-                  size={20}
-                  color='#666'
-                />
-              </TouchableOpacity>
             </View>
-          </View>
 
-          {/* Checkbox */}
-          <View style={styles.checkboxContainer}>
-            <Checkbox
-              value={isChecked}
-              onValueChange={setChecked}
-              color={isChecked ? '#2a9aa8' : undefined}
-            />
-            <Text style={styles.checkboxText}>
-              I agree to the <Text style={styles.link}>Terms & Conditions</Text>{' '}
-              and <Text style={styles.link}>Privacy Policy</Text>
+            {/* Email */}
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>Email</Text>
+              <TextInput
+                style={styles.input}
+                placeholder='Enter your email address'
+                placeholderTextColor='#999'
+                keyboardType='email-address'
+                value={email}
+                onChangeText={setEmail}
+              />
+            </View>
+
+            {/* Password */}
+            <View style={styles.inputContainer}>
+              <Text style={styles.label}>Password</Text>
+              <View style={styles.passwordWrapper}>
+                <TextInput
+                  style={styles.input}
+                  placeholder='Enter your password'
+                  placeholderTextColor='#999'
+                  secureTextEntry={!passwordVisible}
+                  value={password}
+                  onChangeText={setPassword}
+                />
+                <TouchableOpacity
+                  style={styles.eyeIcon}
+                  onPress={() => setPasswordVisible(prev => !prev)}
+                >
+                  <Ionicons
+                    name={passwordVisible ? 'eye' : 'eye-off'}
+                    size={20}
+                    color='#666'
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Checkbox */}
+            <View style={styles.checkboxRow}>
+              <Checkbox
+                value={isChecked}
+                onValueChange={setChecked}
+                color={isChecked ? '#fc8403' : undefined}
+              />
+              <Text style={styles.checkboxText}>
+                I agree to the{' '}
+                <Text style={styles.link}>Terms & Conditions</Text> and{' '}
+                <Text style={styles.link}>Privacy Policy</Text>
+              </Text>
+            </View>
+
+            {/* Sign Up Button */}
+            <TouchableOpacity style={styles.signupBtn}>
+              <Text style={styles.signupText}>Sign Up</Text>
+            </TouchableOpacity>
+
+            {/* Already have account */}
+            <Text style={styles.footerText}>
+              Already have an account?{' '}
+              <Text
+                style={styles.link}
+                onPress={() => router.push('/registration/LoginScreen')}
+              >
+                Sign in
+              </Text>
             </Text>
           </View>
-
-          {/* Sign Up Button */}
-          <TouchableOpacity style={styles.signupBtn}>
-            <Text style={styles.signupText}>Sign Up</Text>
-          </TouchableOpacity>
-
-          {/* Already have account */}
-          <Text style={styles.footerText}>
-            Already have account?{' '}
-            <Text
-              style={styles.link}
-              onPress={() => router.push('/registration/LoginScreen')}
-            >
-              Sign in
-            </Text>
-          </Text>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </ImageBackground>
   )
 }
 
 export default RegistrationScreen
+
 const styles = StyleSheet.create({
   background: {
     flex: 1
   },
   container: {
     flexGrow: 1,
-    paddingBottom: 40
+    paddingBottom: 30
   },
   header: {
     alignItems: 'center',
-    marginTop: 60
+    marginTop: 80,
+    marginBottom: 10
   },
   headerImage: {
-    width: 180,
-    height: 180
+    width: 160,
+    height: 160
   },
   formContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
-    // borderTopLeftRadius: 25,
-    borderRadius: 25,
-    padding: 25,
-    marginTop: -20,
-    marginHorizontal: 10,
-    elevation: 5,
+    backgroundColor: 'rgba(255,255,255,0.95)',
+    marginHorizontal: width * 0.05,
+    borderRadius: 20,
+    padding: 22,
     shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 4 }
+    shadowRadius: 5,
+    elevation: 6
   },
   title: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#333',
     textAlign: 'center',
-    marginBottom: 5
+    color: '#333',
+    marginBottom: 4
   },
   subtitle: {
     textAlign: 'center',
-    color: '#555',
+    color: '#666',
+    fontSize: 14,
     marginBottom: 20
   },
   inputContainer: {
-    marginBottom: 15
+    marginBottom: 16
   },
   label: {
+    fontSize: 14,
     fontWeight: '500',
-    marginBottom: 5,
-    color: '#444'
+    color: '#333',
+    marginBottom: 6
   },
   input: {
-    backgroundColor: '#eeee',
+    backgroundColor: '#eee',
     padding: 12,
     borderRadius: 10,
     fontSize: 16,
-    color: '#333'
+    color: '#000'
   },
   passwordWrapper: {
     position: 'relative'
   },
   eyeIcon: {
     position: 'absolute',
-    right: 15,
-    top: 14
+    top: 14,
+    right: 14
   },
-  checkboxContainer: {
+  checkboxRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 15
+    marginBottom: 20
   },
   checkboxText: {
     marginLeft: 10,
@@ -198,15 +229,15 @@ const styles = StyleSheet.create({
     flexShrink: 1
   },
   link: {
-    color: '#2a9aa8',
+    color: '#fc8403',
     fontWeight: '600'
   },
   signupBtn: {
-    backgroundColor: '#2a9aa8',
+    backgroundColor: '#fc8403',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
-    marginBottom: 15
+    marginBottom: 18
   },
   signupText: {
     color: '#fff',
@@ -215,6 +246,7 @@ const styles = StyleSheet.create({
   },
   footerText: {
     textAlign: 'center',
-    color: '#555'
+    color: '#444',
+    fontSize: 14
   }
 })

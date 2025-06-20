@@ -1,12 +1,12 @@
 import { router } from 'expo-router'
 import React, { useState } from 'react'
 import {
-  View,
+  Alert,
+  Image,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Image,
-  Alert
+  View
 } from 'react-native'
 
 const PinScreen = () => {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8
   },
   activeDot: {
-    backgroundColor: '#2a9aa8'
+    backgroundColor: '#fc8403'
   },
   padContainer: {
     flexDirection: 'row',

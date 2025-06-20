@@ -1,15 +1,15 @@
+import { FontAwesome6, Ionicons } from '@expo/vector-icons'
 import React, { useState } from 'react'
 import {
-  View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView
+  View
 } from 'react-native'
-import { FontAwesome6, Ionicons } from '@expo/vector-icons'
 
 const Status = () => {
   const [flightNumber, setFlightNumber] = useState('')
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5
   },
   activeButton: {
-    backgroundColor: '#2a9aa8'
+    backgroundColor: '#fc8403'
   },
   switchText: {
     textAlign: 'center',
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   trackButton: {
-    backgroundColor: '#2a9aa8',
+    backgroundColor: '#fc8403',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

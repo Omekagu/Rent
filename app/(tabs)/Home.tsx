@@ -1,21 +1,20 @@
-import { useEffect, useRef, useState } from 'react'
 import { EvilIcons, Ionicons, MaterialIcons } from '@expo/vector-icons'
 import { router } from 'expo-router'
+import { useRef, useState } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  StatusBar,
-  ImageBackground,
-  TouchableOpacity,
   Animated,
   Dimensions,
+  Image,
+  ImageBackground,
+  Modal,
   PanResponder,
-  Modal
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import SearchedFlightComponent from '../components/SearchedFlightComponent'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
 const { width, height } = Dimensions.get('window')
@@ -155,7 +154,7 @@ const Home = () => {
             >
               <TouchableOpacity
                 style={{
-                  backgroundColor: '#2a9aa8',
+                  backgroundColor: '#fc8403',
                   padding: 15,
                   borderRadius: 8,
                   marginBottom: 10

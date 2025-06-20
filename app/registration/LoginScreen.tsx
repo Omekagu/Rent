@@ -1,19 +1,17 @@
+import { Ionicons } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React, { useState } from 'react'
 import {
-  View,
+  Image,
+  ImageBackground,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
-  Image,
-  ScrollView,
-  StatusBar,
-  Platform,
-  ImageBackground
+  View
 } from 'react-native'
-import { Ionicons } from '@expo/vector-icons'
-import Checkbox from 'expo-checkbox'
-import { router } from 'expo-router'
 
 const LoginScreen = () => {
   const [isChecked, setChecked] = useState(false)
