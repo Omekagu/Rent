@@ -1,14 +1,8 @@
-import { EvilIcons, Ionicons, MaterialIcons } from '@expo/vector-icons'
+import { MaterialIcons } from '@expo/vector-icons'
 import { router } from 'expo-router'
-import { useRef, useState } from 'react'
 import {
-  Animated,
-  Dimensions,
   Image,
   ImageBackground,
-  Modal,
-  PanResponder,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -17,192 +11,13 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const { width, height } = Dimensions.get('window')
-
-const FlightCard = ({ route, date, terminal, gate, code }) => (
-  <TouchableOpacity
-    style={styles.card}
-    onPress={() => router.push('/(stacks)/BookingDetailScreen')}
-  >
-    <View style={{ flex: 1 }}>
-      <Text style={styles.cardRoute}>{route}</Text>
-      <Text style={styles.cardDetails}>{date}</Text>
-    </View>
-    <View style={{ alignItems: 'flex-end' }}>
-      <View style={styles.planeCodeContainer}>
-        <Ionicons name='airplane-outline' size={24} color='#000' />
-        <Text style={styles.planeCode}>{code}</Text>
-      </View>
-      <Text style={styles.airportCode}>
-        {route.split(' to ')[1].split(' ')[0]} -{' '}
-        {route.split(' to ')[1].split(' ')[1]}
-      </Text>
-      <Text style={styles.terminalInfo}>Terminal {terminal}</Text>
-      <Text style={styles.terminalInfo}> {}</Text>
-      <Text style={styles.terminalInfo}>Gate {gate}</Text>
-    </View>
-  </TouchableOpacity>
-)
-
 const Home = () => {
-  const [modalVisible, setModalVisible] = useState(false)
-
-  const pan = useRef(
-    new Animated.ValueXY({ x: width - 140, y: height / 2 })
-  ).current
-
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        console.log('GRANT')
-        pan.setOffset({
-          x: pan.x._value,
-          y: pan.y._value
-        })
-        pan.setValue({ x: 0, y: 0 })
-      },
-      onPanResponderMove: (evt, gestureState) => {
-        console.log('MOVE', gestureState.dx, gestureState.dy)
-        pan.setValue({ x: gestureState.dx, y: gestureState.dy })
-      },
-      onPanResponderRelease: () => {
-        console.log('RELEASE')
-        pan.flattenOffset()
-      }
-    })
-  ).current
-
   return (
     <>
-      <StatusBar barStyle='#000' />
+      <StatusBar />
       <SafeAreaView
         style={{ flex: 1, backgroundColor: '#fff', position: 'relative' }}
       >
-        {/* Floating Pen Button */}
-        <View>
-          <Animated.View
-            {...panResponder.panHandlers}
-            style={[
-              {
-                transform: pan.getTranslateTransform(),
-                position: 'absolute',
-                zIndex: 999,
-                elevation: 5
-              }
-            ]}
-          >
-            <TouchableOpacity
-              onPress={() => setModalVisible(true)}
-              style={{
-                width: '100%',
-                height: 50,
-                backgroundColor: '#000',
-                borderRadius: 15,
-                justifyContent: 'center',
-                alignItems: 'center',
-                shadowColor: '#000',
-                shadowOpacity: 0.3,
-                shadowRadius: 10,
-                elevation: 10,
-                paddingBottom: 10,
-                paddingLeft: 10
-              }}
-            >
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    fontWeight: 'bold',
-                    alignSelf: 'center',
-                    paddingTop: 10,
-                    color: '#fff'
-                  }}
-                >
-                  Book Flight
-                </Text>
-                <EvilIcons name='pencil' size={30} color='#fff' />
-              </View>
-            </TouchableOpacity>
-          </Animated.View>
-        </View>
-
-        {/* Modal */}
-        <Modal
-          transparent
-          visible={modalVisible}
-          animationType='slide'
-          onRequestClose={() => setModalVisible(false)}
-        >
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-            activeOpacity={1}
-            onPressOut={() => setModalVisible(false)}
-          >
-            <View
-              style={{
-                width: '80%',
-                backgroundColor: '#fff',
-                padding: 20,
-                borderRadius: 16
-              }}
-            >
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#fc8403',
-                  padding: 15,
-                  borderRadius: 8,
-                  marginBottom: 10
-                }}
-                onPress={() => {
-                  setModalVisible(false)
-                  router.push('/(stacks)/AiBookingScreen')
-                }}
-              >
-                <Text
-                  style={{
-                    color: '#fff',
-                    textAlign: 'center',
-                    fontSize: 16,
-                    fontWeight: 'bold'
-                  }}
-                >
-                  Ai Flight Booking
-                </Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={{
-                  backgroundColor: '#94a3b8',
-                  padding: 15,
-                  borderRadius: 8
-                }}
-                onPress={() => {
-                  setModalVisible(false)
-                  router.push('/(stacks)/ManualBookingScreen')
-                  // Navigate or handle manual booking
-                }}
-              >
-                <Text
-                  style={{
-                    color: '#fff',
-                    textAlign: 'center',
-                    fontSize: 16,
-                    fontWeight: 'bold'
-                  }}
-                >
-                  Manual Flight Booking
-                </Text>
-              </TouchableOpacity>
-            </View>
-          </TouchableOpacity>
-        </Modal>
-
         {/* Header and Image Background */}
         <View style={styles.section}>
           <View style={styles.header}>
@@ -261,81 +76,6 @@ const Home = () => {
             <Text style={styles.seeAll}>See All</Text>
           </View>
         </View>
-
-        <View style={styles.sectionContainer}>
-          <ScrollView contentContainerStyle={styles.container}>
-            <FlightCard
-              code='AR715'
-              route='London to New York'
-              date='15 Oct 23 | 03:20 PM'
-              terminal='B'
-              gate='B45'
-            />
-            <FlightCard
-              code='AR513'
-              route='Dabaca to Almedy'
-              date='22 Oct 23 | 08:40 PM'
-              terminal='A'
-              gate='A4'
-            />
-            <FlightCard
-              code='DL887'
-              route='Los Angeles to Tokyo'
-              date='10 Nov 23 | 01:15 PM'
-              terminal='C'
-              gate='C12'
-            />
-            <FlightCard
-              code='EK231'
-              route='Dubai to Washington'
-              date='25 Dec 23 | 11:45 PM'
-              terminal='D'
-              gate='D5'
-            />
-            <FlightCard
-              code='BA149'
-              route='Paris to Cairo'
-              date='30 Nov 23 | 05:50 AM'
-              terminal='E'
-              gate='E3'
-            />
-            <FlightCard
-              code='LH760'
-              route='Frankfurt to Delhi'
-              date='12 Dec 23 | 09:00 AM'
-              terminal='F'
-              gate='F7'
-            />
-            <FlightCard
-              code='AA789'
-              route='Chicago to Miami'
-              date='18 Jan 24 | 02:25 PM'
-              terminal='G'
-              gate='G10'
-            />
-            <FlightCard
-              code='SQ927'
-              route='Singapore to Sydney'
-              date='20 Feb 24 | 06:00 AM'
-              terminal='H'
-              gate='H4'
-            />
-            <FlightCard
-              code='AF198'
-              route='Amsterdam to Nairobi'
-              date='05 Mar 24 | 08:35 PM'
-              terminal='J'
-              gate='J9'
-            />
-            <FlightCard
-              code='QF433'
-              route='Melbourne to Brisbane'
-              date='01 Apr 24 | 04:15 PM'
-              terminal='K'
-              gate='K2'
-            />
-          </ScrollView>
-        </View>
       </SafeAreaView>
     </>
   )
@@ -346,15 +86,12 @@ const styles = StyleSheet.create({
     height: '100%',
     margin: 10,
     paddingTop: 10,
-    // backgroundColor: '#1a555c',
     borderWidth: 1,
     borderColor: '#000',
     borderRadius: 16,
     paddingBottom: 350
   },
   container: {
-    // backgroundColor: '#1a555c',
-    // height: '100%',
     paddingBottom: 50,
     paddingHorizontal: 2
   },
@@ -370,7 +107,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     marginBottom: 20
   },
   greeting: {
@@ -385,8 +122,8 @@ const styles = StyleSheet.create({
     color: '#0f172a'
   },
   avatar: {
-    width: 100,
-    height: 100,
+    width: 50,
+    height: 50,
     borderRadius: 50
   },
   section: {

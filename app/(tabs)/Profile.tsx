@@ -1,16 +1,16 @@
+import { Fontisto } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React from 'react'
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
+  Image,
   SafeAreaView,
   ScrollView,
-  Image
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native'
-import { Fontisto } from '@expo/vector-icons'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
-import { router } from 'expo-router'
 
 const settingsOptions = [
   {
@@ -239,7 +239,7 @@ export default function Profile () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1a555c'
+    backgroundColor: '#fc8403'
   },
 
   scrollContent: {

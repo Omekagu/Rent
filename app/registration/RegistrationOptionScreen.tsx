@@ -138,12 +138,12 @@ const styles = StyleSheet.create({
     flexGrow: 1
   },
   title: {
-    fontSize: 19,
-    fontWeight: '900',
-    color: '#000',
-    marginBottom: 35,
     textAlign: 'center',
-    textTransform: 'uppercase'
+    color: '#666',
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    fontSize: 16,
+    marginBottom: 20
   },
   label: {
     fontSize: 14,

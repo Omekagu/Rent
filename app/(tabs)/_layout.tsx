@@ -11,7 +11,7 @@ export default function _layout () {
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',
-          backgroundColor: '#1a555c',
+          backgroundColor: '#fc8403',
           elevation: 0,
           borderTopWidth: 0,
           paddingTop: 10,
@@ -44,7 +44,7 @@ export default function _layout () {
                 name={iconName as any}
                 size={20}
                 style={{ marginBottom: -3 }}
-                color={focused ? '#fc8403' : '#fff'}
+                color={focused ? '#000' : '#fff'}
               />
             </Animated.View>
           )

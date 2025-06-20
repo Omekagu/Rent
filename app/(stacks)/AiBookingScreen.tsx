@@ -128,7 +128,7 @@ const AiBookingScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1a555c',
+    backgroundColor: '#fc8403',
     marginTop: -50
   },
   chatContainer: {

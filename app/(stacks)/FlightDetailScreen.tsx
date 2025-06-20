@@ -1,15 +1,15 @@
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
+import React from 'react'
 import {
+  Dimensions,
+  // ScrollView
   Image,
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
-  Dimensions
-  // ScrollView
+  View
 } from 'react-native'
-import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 // import { router } from 'expo-router'
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
@@ -17,7 +17,7 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window')
 export default function FlightDetailScreen () {
   return (
     <SafeAreaView
-      style={{ flex: 1, backgroundColor: '#1a555c', paddingBottom: -40 }}
+      style={{ flex: 1, backgroundColor: '#fc8403', paddingBottom: -40 }}
     >
       <View>
         <View style={styles.container}>
@@ -49,7 +49,7 @@ export default function FlightDetailScreen () {
               <Ionicons
                 name='airplane'
                 size={35}
-                color='#1a555c'
+                color='#fc8403'
                 style={styles.progressPlane}
               />
             </View>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
   },
   topBar: {
-    backgroundColor: '#1a555c',
+    backgroundColor: '#fc8403',
     height: SCREEN_HEIGHT * 0.07,
     width: '100%',
     borderTopLeftRadius: 24,
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 12,
     height: 2,
-    backgroundColor: '#1a555c',
+    backgroundColor: '#fc8403',
     borderRadius: 1,
     zIndex: 1
   },

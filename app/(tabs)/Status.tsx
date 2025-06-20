@@ -148,7 +148,7 @@ const Status = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#1a555c' },
+  container: { flex: 1, backgroundColor: '#fc8403' },
   content: {
     padding: 20,
     paddingTop: 40
