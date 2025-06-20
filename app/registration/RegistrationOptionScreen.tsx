@@ -1,11 +1,11 @@
-import { FontAwesome } from '@expo/vector-icons'
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { useRouter } from 'expo-router'
 import React, { useState } from 'react'
 import {
   Dimensions,
+  ImageBackground,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -21,9 +21,15 @@ const RegistrationOptionScreen = () => {
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordVisible, setPasswordVisible] = useState(false)
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ImageBackground
+      source={{
+        uri: 'https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&w=600'
+      }}
+      style={styles.container}
+    >
       <StatusBar barStyle='dark-content' backgroundColor='#fff' />
       <KeyboardAvoidingView
         style={styles.flex}
@@ -38,42 +44,34 @@ const RegistrationOptionScreen = () => {
           {/* Email Input */}
           <View style={styles.inputContainer}>
             <TextInput
-              placeholder='Email'
               style={styles.input}
+              placeholder='Enter your full name'
+              placeholderTextColor='#333333'
               value={email}
               onChangeText={setEmail}
-              placeholderTextColor='#888'
-              keyboardType='email-address'
-              autoCapitalize='none'
             />
-            {email.length > 0 && (
-              <FontAwesome
-                name='check'
-                size={16}
-                color='green'
-                style={styles.icon}
-              />
-            )}
           </View>
 
           {/* Password Input */}
           <View style={styles.inputContainer}>
             <TextInput
-              placeholder='Password'
               style={styles.input}
+              placeholder='Enter your password'
+              placeholderTextColor='#333'
+              secureTextEntry={!passwordVisible}
               value={password}
               onChangeText={setPassword}
-              secureTextEntry
-              placeholderTextColor='#888'
             />
-            {password.length > 0 && (
-              <FontAwesome
-                name='check'
-                size={16}
-                color='green'
-                style={styles.icon}
+            <TouchableOpacity
+              style={styles.eyeIcon}
+              onPress={() => setPasswordVisible(prev => !prev)}
+            >
+              <Ionicons
+                name={passwordVisible ? 'eye' : 'eye-off'}
+                size={20}
+                color='#666'
               />
-            )}
+            </TouchableOpacity>
           </View>
 
           {/* Remember Me & Forgot Password */}
@@ -116,7 +114,7 @@ const RegistrationOptionScreen = () => {
           </Text>
         </ScrollView>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </ImageBackground>
   )
 }
 
@@ -141,22 +139,33 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     color: '#000',
     marginBottom: 35,
-    textAlign: 'center'
+    textAlign: 'center',
+    textTransform: 'uppercase'
   },
+  label: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#333',
+    marginBottom: 6
+  },
+  eyeIcon: {
+    position: 'absolute',
+    top: 14,
+    right: 14
+  },
+
   inputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1.5,
-    borderColor: 'green',
+    // borderWidth: 0.5,
     borderRadius: 12,
-    paddingHorizontal: 14,
     marginBottom: 20,
     height: 55
   },
   input: {
-    flex: 1,
+    padding: 16.5,
+    borderRadius: 10,
     fontSize: 16,
-    color: '#000'
+    color: '#000',
+    backgroundColor: '#f5f5f5'
   },
   icon: {
     marginLeft: 10
@@ -192,7 +201,8 @@ const styles = StyleSheet.create({
   },
   orContinue: {
     textAlign: 'center',
-    color: '#aaa',
+    fontWeight: '900',
+    color: '#fff',
     marginBottom: 20
   },
   socialRow: {
@@ -211,7 +221,8 @@ const styles = StyleSheet.create({
   footerText: {
     textAlign: 'center',
     fontSize: 13,
-    color: '#999'
+    fontWeight: '900',
+    color: '#fff'
   },
   signUpText: {
     color: '#fc8403',
