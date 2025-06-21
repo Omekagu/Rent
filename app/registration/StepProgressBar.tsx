@@ -1,10 +1,18 @@
 import { Ionicons } from '@expo/vector-icons'
 import React from 'react'
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import {
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native'
 
 export default function StepProgressBar ({ steps, currentStep }) {
   return (
-    <View style={styles.overlayContainer}>
+    <SafeAreaView style={styles.overlayContainer}>
+      <StatusBar barStyle='dark-content' />
       <View style={styles.barContainer}>
         {steps.map((step, idx) => {
           const isCompleted = idx < currentStep
@@ -59,22 +67,16 @@ export default function StepProgressBar ({ steps, currentStep }) {
           )
         })}
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   overlayContainer: {
-    position: 'absolute',
-    top: Platform.OS === 'ios' ? 60 : 30,
-    left: 0,
-    right: 0,
-    zIndex: 10,
-    // transparent background
+    margin: 20,
     backgroundColor: 'rgba(255,255,255,0.1)',
     paddingHorizontal: 14,
     paddingVertical: 10,
-    // subtle shadow
     ...Platform.select({
       ios: {
         shadowColor: '#000',

@@ -90,14 +90,14 @@ export default function StepIdentification ({ onNext, onBack }) {
           <Ionicons
             name={selected.icon}
             size={20}
-            color='#fc8403'
+            color='#000'
             style={{ marginRight: 7 }}
           />
           <Text style={styles.dropdownLabel}>{selected.label}</Text>
           <Ionicons
             name='chevron-down'
             size={20}
-            color='#fc8403'
+            color='#000'
             style={{ marginLeft: 'auto' }}
           />
         </TouchableOpacity>
@@ -127,14 +127,14 @@ export default function StepIdentification ({ onNext, onBack }) {
                     <Ionicons
                       name={item.icon}
                       size={18}
-                      color={selected.key === item.key ? '#fc8403' : '#888'}
+                      color={selected.key === item.key ? '#000' : '#888'}
                       style={{ marginRight: 10 }}
                     />
                     <Text
                       style={[
                         styles.dropdownItemLabel,
                         selected.key === item.key && {
-                          color: '#fc8403',
+                          color: '#000',
                           fontWeight: 'bold'
                         }
                       ]}
@@ -169,7 +169,7 @@ export default function StepIdentification ({ onNext, onBack }) {
         {/* Buttons */}
         <View style={styles.btnRow}>
           <TouchableOpacity style={styles.buttonAlt} onPress={onBack}>
-            <Ionicons name='arrow-back' size={20} color='#fc8403' />
+            <Ionicons name='arrow-back' size={20} color='#000' />
             <Text style={styles.buttonTextAlt}>Back</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleNext}>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#fc8403',
+    color: '#000',
     marginBottom: 18,
     textAlign: 'center'
   },
@@ -216,7 +216,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.2,
-    borderColor: '#fc8403',
+    borderColor: '#000',
     backgroundColor: '#f6faff',
     borderRadius: 10,
     paddingVertical: 14,
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
   },
   dropdownLabel: {
     fontSize: 16,
-    color: '#fc8403',
+    color: '#000',
     fontWeight: '600'
   },
   modalOverlay: {
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 10,
     borderWidth: 1.2,
-    borderColor: '#fc8403',
+    borderColor: '#000',
     backgroundColor: '#f7fbff',
     fontSize: 16,
     color: '#222',
@@ -281,7 +281,7 @@ const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fc8403',
+    backgroundColor: '#000',
     borderRadius: 9,
     paddingVertical: 12,
     paddingHorizontal: 26
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 21
   },
   buttonTextAlt: {
-    color: '#fc8403',
+    color: '#000',
     fontWeight: 'bold',
     fontSize: 17,
     marginLeft: 5

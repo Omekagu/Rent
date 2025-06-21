@@ -95,7 +95,7 @@ const RegistrationScreen = ({
                 <Ionicons
                   name='home'
                   size={22}
-                  color={accountType === 'Landlord' ? '#fff' : '#fc8403'}
+                  color={accountType === 'Landlord' ? '#fff' : '#000'}
                   style={{ marginRight: 8 }}
                 />
                 <Text
@@ -376,7 +376,7 @@ const styles = StyleSheet.create({
     borderColor: '#fc8403'
   },
   accountTypeText: {
-    color: '#fc8403',
+    color: '#000',
     fontWeight: '700',
     fontSize: 16
   },
