@@ -26,7 +26,7 @@ export default function StepProgressBar ({ steps, currentStep }) {
                     <Text
                       style={[
                         styles.stepNumber,
-                        isActive && { color: '#2583cc' }
+                        isActive && { color: '#fc8403' }
                       ]}
                     >
                       {idx + 1}
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(30,199,115,0.08)'
   },
   circleActive: {
-    borderColor: '#2583cc',
+    borderColor: '#fc8403',
     backgroundColor: 'rgba(37,131,204,0.08)'
   },
   stepNumber: { fontSize: 14, color: '#aaa', fontWeight: 'bold' },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     maxWidth: 56
   },
   labelCompleted: { color: '#1ec773' },
-  labelActive: { color: '#2583cc' },
+  labelActive: { color: '#fc8403' },
   line: {
     height: 2,
     flex: 1,

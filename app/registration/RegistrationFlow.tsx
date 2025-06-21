@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import RegistrationScreen from './RegistrationScreen'
 import StepFacial from './StepFacial'
-import StepNin from './StepNin'
+import StepIdentification from './StepIdentification'
 import StepProgressBar from './StepProgressBar'
 import StepResidence from './StepResidence'
 import StepSubmit from './StepSubmit'
 
 const steps = [
   { label: 'Account' },
-  { label: 'NIN' },
+  { label: 'Identification' },
   { label: 'Facial' },
   { label: 'Residence' },
   { label: 'Submit' }
@@ -27,7 +27,7 @@ export default function RegistrationFlow () {
       StepComponent = <RegistrationScreen onNext={goNext} onBack={goBack} />
       break
     case 1:
-      StepComponent = <StepNin onNext={goNext} onBack={goBack} />
+      StepComponent = <StepIdentification onNext={goNext} onBack={goBack} />
       break
     case 2:
       StepComponent = <StepFacial onNext={goNext} onBack={goBack} />
