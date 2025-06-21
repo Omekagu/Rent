@@ -97,7 +97,7 @@ const LoginScreen = () => {
             No Account Yet ?{' '}
             <Text
               style={styles.link}
-              onPress={() => router.push('/registration/RegistrationScreen')}
+              onPress={() => router.push('/registration/RegistrationFlow')}
             >
               Sign Up
             </Text>

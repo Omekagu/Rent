@@ -15,6 +15,11 @@ export default function RootLayout () {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name='registration/RegistrationFlow'
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
           name='registration/RegistrationOptionScreen'
           options={{ headerShown: false }}
         />

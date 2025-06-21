@@ -3,6 +3,7 @@ import Checkbox from 'expo-checkbox'
 import { router } from 'expo-router'
 import React, { useState } from 'react'
 import {
+  Button,
   Dimensions,
   FlatList,
   Image,
@@ -30,7 +31,13 @@ const countries = [
   { name: 'UK', code: '+44', flag: '🇬🇧' }
 ]
 
-const RegistrationScreen = () => {
+const RegistrationScreen = ({
+  onNext,
+  onBack
+}: {
+  onNext: () => void
+  onBack: () => void
+}) => {
   const [isChecked, setChecked] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [email, setEmail] = useState('')
@@ -76,7 +83,6 @@ const RegistrationScreen = () => {
 
           <View style={styles.formContainer}>
             <Text style={styles.subtitle}>Create your account</Text>
-
             {/* Account Type Selection */}
             <View style={styles.accountTypeRow}>
               <TouchableOpacity
@@ -126,7 +132,6 @@ const RegistrationScreen = () => {
                 </Text>
               </TouchableOpacity>
             </View>
-
             {/* Fullname */}
             <View style={styles.inputContainer}>
               <TextInput
@@ -157,7 +162,6 @@ const RegistrationScreen = () => {
                 onChangeText={setFullname}
               />
             </View>
-
             {/* Email */}
             <View style={styles.inputContainer}>
               <TextInput
@@ -169,7 +173,6 @@ const RegistrationScreen = () => {
                 onChangeText={setEmail}
               />
             </View>
-
             {/* Phone - with Country Prefix */}
             <View style={styles.inputContainer}>
               <View style={styles.phoneRow}>
@@ -193,7 +196,6 @@ const RegistrationScreen = () => {
                 />
               </View>
             </View>
-
             {/* Password */}
             <View style={styles.inputContainer}>
               <View style={styles.passwordWrapper}>
@@ -217,7 +219,6 @@ const RegistrationScreen = () => {
                 </TouchableOpacity>
               </View>
             </View>
-
             {/* Checkbox */}
             <View style={styles.checkboxRow}>
               <Checkbox
@@ -231,7 +232,6 @@ const RegistrationScreen = () => {
                 <Text style={styles.link}>Privacy Policy</Text>
               </Text>
             </View>
-
             {/* Sign Up Button */}
             <TouchableOpacity
               style={styles.signupBtn}
@@ -239,7 +239,6 @@ const RegistrationScreen = () => {
             >
               <Text style={styles.signupText}>Sign Up</Text>
             </TouchableOpacity>
-
             {/* Already have account */}
             <Text style={styles.footerText}>
               Already have an account?{' '}
@@ -252,6 +251,8 @@ const RegistrationScreen = () => {
                 Sign in
               </Text>
             </Text>
+            <Button title='Next' onPress={onNext} />
+            <Button title='Back' onPress={onBack} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
