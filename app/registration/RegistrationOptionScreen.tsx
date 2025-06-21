@@ -110,7 +110,7 @@ const RegistrationOptionScreen = () => {
             Don’t have an account?{' '}
             <Text
               style={styles.signUpText}
-              onPress={() => router.push('/registration/RegistrationScreen')}
+              onPress={() => router.push('/registration/RegistrationFlow')}
             >
               Sign up
             </Text>

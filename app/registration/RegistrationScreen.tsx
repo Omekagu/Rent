@@ -3,7 +3,6 @@ import Checkbox from 'expo-checkbox'
 import { router } from 'expo-router'
 import React, { useState } from 'react'
 import {
-  Button,
   Dimensions,
   FlatList,
   Image,
@@ -235,7 +234,7 @@ const RegistrationScreen = ({
             {/* Sign Up Button */}
             <TouchableOpacity
               style={styles.signupBtn}
-              onPress={() => router.push('/registration/VerificationScreen')}
+              onPress={() => password && onNext()}
             >
               <Text style={styles.signupText}>Sign Up</Text>
             </TouchableOpacity>
@@ -251,8 +250,6 @@ const RegistrationScreen = ({
                 Sign in
               </Text>
             </Text>
-            <Button title='Next' onPress={onNext} />
-            <Button title='Back' onPress={onBack} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

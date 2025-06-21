@@ -1,3 +1,5 @@
+import { Button } from '@react-navigation/elements'
+import { push } from 'expo-router/build/global-state/routing'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
@@ -8,6 +10,13 @@ export default function StepSubmit () {
       <Text style={styles.text}>
         Thank you for registering. We will review your information shortly.
       </Text>
+      <Button
+        title='Finish'
+        onPress={() => {
+          push('/(tabs)/Home') // Navigate to home screen
+          // Handle finish action, e.g., navigate to home screen
+        }}
+      />
     </View>
   )
 }

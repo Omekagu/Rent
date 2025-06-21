@@ -21,7 +21,7 @@ export default function RegistrationFlow () {
   const goNext = () => setStep(prev => Math.min(prev + 1, steps.length - 1))
   const goBack = () => setStep(prev => Math.max(prev - 1, 0))
 
-  let StepComponent
+  let StepComponent = null
   switch (step) {
     case 0:
       StepComponent = <RegistrationScreen onNext={goNext} onBack={goBack} />
@@ -43,7 +43,8 @@ export default function RegistrationFlow () {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#fff' }}>
+    <View style={{ flex: 1 }}>
+      {/* ProgressBar overlays at the top */}
       <StepProgressBar steps={steps} currentStep={step} />
       <View style={{ flex: 1 }}>{StepComponent}</View>
     </View>
