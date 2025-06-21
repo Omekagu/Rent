@@ -131,7 +131,27 @@ const RegistrationScreen = () => {
             <View style={styles.inputContainer}>
               <TextInput
                 style={styles.input}
-                placeholder='Enter your full name'
+                placeholder='Enter First Name'
+                placeholderTextColor='#999'
+                value={fullname}
+                onChangeText={setFullname}
+              />
+            </View>
+            {/* Fullname */}
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder='Enter Middle Name'
+                placeholderTextColor='#999'
+                value={fullname}
+                onChangeText={setFullname}
+              />
+            </View>
+            {/* Fullname */}
+            <View style={styles.inputContainer}>
+              <TextInput
+                style={styles.input}
+                placeholder='Enter Surname'
                 placeholderTextColor='#999'
                 value={fullname}
                 onChangeText={setFullname}
@@ -310,7 +330,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: -30,
     marginBottom: 10
   },
   headerImage: {
