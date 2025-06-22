@@ -1,227 +1,240 @@
-import { MaterialIcons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons'
 import { router } from 'expo-router'
+import React, { useState } from 'react'
 import {
   Image,
-  ImageBackground,
+  Platform,
+  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import RoomCard from '../components/RoomCard'
+
+export const roomList = [
+  {
+    image: 'https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg',
+    name: 'Dhanmondi',
+    location: 'Lagos, NG',
+    price: '150',
+    rating: '4.9'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg',
+    name: 'Gulshan',
+    location: 'Enugu, NG',
+    price: '200',
+    rating: '4.8'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg',
+    name: 'Banani',
+    location: 'Abuja, NG',
+    price: '180',
+    rating: '4.7'
+  },
+  {
+    image: 'https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg',
+    name: 'Uttara',
+    location: 'Nasarawa, NG',
+    price: '130',
+    rating: '4.6'
+  },
+  {
+    image: 'https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg',
+    name: 'Mirpur',
+    location: 'Gobe, NG',
+    price: '120',
+    rating: '4.4'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1974596/pexels-photo-1974596.jpeg',
+    name: 'Mohakhali',
+    location: 'Oyo, NG',
+    price: '140',
+    rating: '4.5'
+  },
+  {
+    image: 'https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg',
+    name: 'Baridhara',
+    location: 'Kano, NG',
+    price: '220',
+    rating: '4.8'
+  },
+  {
+    image: 'https://images.pexels.com/photos/1080696/pexels-photo-1080696.jpeg',
+    name: 'Bashundhara',
+    location: 'Niger, NG',
+    price: '170',
+    rating: '4.7'
+  },
+  {
+    image: 'https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg',
+    name: 'Motijheel',
+    location: 'Kogi, NG',
+    price: '160',
+    rating: '4.5'
+  },
+  {
+    image: 'https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg',
+    name: 'Shyamoli',
+    location: 'Kubwa, NG',
+    price: '110',
+    rating: '4.3'
+  }
+]
 
 const Home = () => {
+  const [search, setSearch] = useState('')
+
   return (
     <>
-      <StatusBar />
-      <SafeAreaView
-        style={{ flex: 1, backgroundColor: '#fff', position: 'relative' }}
-      >
-        {/* Header and Image Background */}
-        <View style={styles.section}>
-          <View style={styles.header}>
-            <TouchableOpacity
-              onPress={() => router.push('/(stacks)/ProfileScreen')}
-            >
-              <Image
-                source={{
-                  uri: 'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg'
-                }}
-                style={styles.avatar}
-                resizeMode='cover'
-              />
-            </TouchableOpacity>
-
-            <View>
-              <TouchableOpacity
-                style={{
-                  alignSelf: 'flex-end',
-                  width: 50,
-                  backgroundColor: '#000',
-                  padding: 10,
-                  borderRadius: 50
-                }}
-                onPress={() => router.push('/(stacks)/NotificationScreen')}
-              >
-                <MaterialIcons
-                  name='notifications-active'
-                  size={30}
-                  color='#fff'
-                />
-              </TouchableOpacity>
-              <Text style={styles.greeting}>Good Morning 🌞</Text>
-              <Text style={styles.name}>Omekagu Joseph.</Text>
-            </View>
-          </View>
-          <ImageBackground
+      <StatusBar barStyle='dark-content' />
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#f7f6f2' }}>
+        {/* Header */}
+        <View style={styles.header}>
+          <Image
             source={{
-              uri: 'https://images.pexels.com/photos/1262304/pexels-photo-1262304.jpeg?auto=compress&cs=tinysrgb&w=600'
+              uri: 'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg'
             }}
-            style={styles.imageBackground}
-            imageStyle={{ borderRadius: 16 }}
-          >
-            <View style={styles.imageBackgroundContainer}>
-              <Text style={styles.sectionTitle}>My Flight</Text>
-              <Text style={styles.sectionSubTitle}>Today</Text>
-              <Text style={styles.flightCode}>YVR - JFK</Text>
-              <Text style={styles.flightDetails}>
-                Vancouver - New York 15 Oct 2023
-              </Text>
-              <Text style={styles.time}>12:40AM</Text>
-            </View>
-          </ImageBackground>
-          <View style={styles.monthSection}>
-            <Text style={styles.monthTitle}>This Month</Text>
-            <Text style={styles.seeAll}>See All</Text>
+            style={styles.avatar}
+            resizeMode='cover'
+          />
+          <View style={{ flex: 1, marginLeft: 15 }}>
+            <Text style={styles.welcomeText}>WELCOME</Text>
+            <Text style={styles.username}>Omekagu Joseph.</Text>
           </View>
+          <TouchableOpacity
+            style={styles.notifBtn}
+            onPress={() => router.push('/(stacks)/NotificationScreen')}
+          >
+            <Ionicons name='notifications-outline' size={26} color='#232323' />
+          </TouchableOpacity>
         </View>
+
+        {/* Search Box */}
+        <View style={styles.searchContainer}>
+          <Ionicons
+            name='search'
+            size={18}
+            color='#b1b1b1'
+            style={{ marginRight: 8 }}
+          />
+          <TextInput
+            placeholder='Search'
+            placeholderTextColor='#b1b1b1'
+            style={styles.searchInput}
+            value={search}
+            onChangeText={setSearch}
+            autoCapitalize='none'
+          />
+          <TouchableOpacity style={styles.searchFilterBtn}>
+            <Ionicons name='options-outline' size={20} color='#b1b1b1' />
+          </TouchableOpacity>
+        </View>
+        <ScrollView contentContainerStyle={{}}>
+          {/* NEWLY ADDED */}
+          <Text
+            style={{
+              paddingHorizontal: 16,
+              textTransform: 'uppercase',
+              fontWeight: 'bold',
+              fontSize: 12,
+              color: '#232323',
+              marginTop: 16
+            }}
+          >
+            Popular Houses
+          </Text>
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ padding: 16 }}
+          >
+            {roomList.map((room, idx) => (
+              <RoomCard key={idx} {...room} />
+            ))}
+          </ScrollView>
+          {/* BASED ON YOUR LOCATION */}
+          <Text
+            style={{
+              paddingHorizontal: 16,
+              textTransform: 'uppercase',
+              fontWeight: 'bold',
+              fontSize: 12,
+              color: '#232323'
+            }}
+          >
+            BASED ON YOUR LOCATION
+          </Text>
+        </ScrollView>
       </SafeAreaView>
     </>
   )
 }
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    height: '100%',
-    margin: 10,
-    paddingTop: 10,
-    borderWidth: 1,
-    borderColor: '#000',
-    borderRadius: 16,
-    paddingBottom: 350
-  },
-  container: {
-    paddingBottom: 50,
-    paddingHorizontal: 2
-  },
-  imageBackground: {
-    width: '100%',
-    height: 200,
-    justifyContent: 'center',
-    marginBottom: 20
-  },
-  imageBackgroundContainer: {
-    padding: 20
-  },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 20
-  },
-  greeting: {
-    alignSelf: 'flex-end',
-    fontSize: 25,
-    fontWeight: '200',
-    color: '#334155'
-  },
-  name: {
-    fontSize: 25,
-    fontWeight: '900',
-    color: '#0f172a'
+    alignItems: 'center',
+    marginTop: Platform.OS === 'android' ? 8 : 0,
+    marginBottom: 18,
+    paddingHorizontal: 16
   },
   avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 50
+    width: 46,
+    height: 46,
+    borderRadius: 18,
+    borderWidth: 2,
+    borderColor: '#e9e4df'
   },
-  section: {
-    // flexDirection: ',
-    width: '100%',
-    backgroundColor: '#fff',
-    padding: 10,
-    overflow: 'hidden'
+  welcomeText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#b1b1b1',
+    letterSpacing: 0.6
   },
-  sectionTitle: {
-    fontSize: 20,
-    fontWeight: '800',
-    color: '#fff'
-  },
-  sectionSubTitle: {
-    fontSize: 16,
-    fontWeight: '800',
-    color: '#f1f5f9',
-    marginBottom: 10
-  },
-  flightCode: {
-    fontSize: 25,
+  username: {
+    fontSize: 19,
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#232323',
+    marginTop: 2
   },
-  planeCodeContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    height: 80,
-    width: 150,
-    marginBottom: 10,
-    backgroundColor: '#f1f5f9',
-    borderLeftWidth: 2,
-    justifyContent: 'flex-end',
-    padding: 8
-  },
-  planeCode: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#dcdee0',
-    marginLeft: 8
-  },
-  flightDetails: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#f1f5f9',
-    marginTop: 5
-  },
-  time: {
-    fontSize: 14,
-    color: '#f8fafc',
-    marginTop: 8
-  },
-  monthSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 3
-  },
-  monthTitle: {
-    fontSize: 12,
-    fontWeight: '800',
-    color: '#1e293b'
-  },
-  seeAll: {
-    fontSize: 14,
-    color: '#3b82f6'
-  },
-  card: {
-    backgroundColor: '#edeef0',
+  notifBtn: {
+    backgroundColor: '#f3eee9',
+    borderRadius: 50,
     padding: 10,
-    borderRadius: 16,
+    marginLeft: 'auto'
+  },
+  searchContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
-    elevation: 3
+    backgroundColor: '#edeae4',
+    borderRadius: 14,
+    marginHorizontal: 16,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+    shadowColor: '#cdc6bc',
+    shadowOpacity: 0.08,
+    shadowRadius: 3,
+    elevation: 1
   },
-  cardRoute: {
+  searchInput: {
+    flex: 1,
     fontSize: 16,
-    fontWeight: '600',
-    color: '#0f172a'
+    color: '#232323',
+    paddingVertical: 0,
+    backgroundColor: 'transparent'
   },
-  cardDetails: {
-    fontSize: 12,
-    color: '#64748b',
-    marginTop: 4
-  },
-  airportCode: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#1e293b'
-  },
-  terminalInfo: {
-    fontSize: 12,
-    color: '#475569'
+  searchFilterBtn: {
+    marginLeft: 8,
+    backgroundColor: '#ece4d8',
+    padding: 6,
+    borderRadius: 14
   }
 })
 

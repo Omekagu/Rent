@@ -5,6 +5,7 @@ export default function RootLayout () {
     <>
       {/* Navigation stack */}
       <Stack>
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen
           name='registration/OnboardingScreen'
@@ -35,7 +36,6 @@ export default function RootLayout () {
           name='registration/PinScreen'
           options={{ headerShown: false }}
         />
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='(stacks)' options={{ headerShown: false }} />
       </Stack>
     </>

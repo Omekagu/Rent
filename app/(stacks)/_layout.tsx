@@ -14,6 +14,10 @@ export default function Layout () {
         }}
       />
       <Stack.Screen
+        name='PropertySearchScreen'
+        options={{ title: 'Property Search', headerShown: false }}
+      />
+      <Stack.Screen
         name='ManualBookingScreen'
         options={{ title: 'manualBookingScreen', headerShown: false }}
       />

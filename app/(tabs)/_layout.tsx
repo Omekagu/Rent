@@ -1,4 +1,3 @@
-// app/(tabs)/_layout.tsx
 import { Ionicons } from '@expo/vector-icons'
 import { Tabs } from 'expo-router'
 import { Animated, StyleSheet } from 'react-native'
@@ -24,7 +23,7 @@ export default function _layout () {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline'
               break
-            case 'Explore':
+            case 'Errand':
               iconName = focused ? 'globe' : 'globe-outline'
               break
             case 'Status':
@@ -52,7 +51,7 @@ export default function _layout () {
       })}
     >
       <Tabs.Screen name='Home' />
-      <Tabs.Screen name='Explore' />
+      <Tabs.Screen name='Errand' />
       <Tabs.Screen name='Booking' />
       <Tabs.Screen name='Status' />
       <Tabs.Screen name='Profile' />
