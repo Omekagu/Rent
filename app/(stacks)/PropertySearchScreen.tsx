@@ -117,7 +117,10 @@ export const propertyListWide = [
 
 export default function PropertySearchScreen () {
   return (
-    <ScrollView style={{ padding: 16 }}>
+    <ScrollView
+      style={{ padding: 16, marginTop: 30 }}
+      contentContainerStyle={{ gap: 16 }}
+    >
       {propertyListWide.map((property, idx) => (
         <PropertySearchCard key={idx} {...property} />
       ))}

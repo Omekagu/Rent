@@ -67,22 +67,23 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     backgroundColor: '#fff',
     borderRadius: 18,
-    padding: 10,
+    padding: 20,
     elevation: 4,
     shadowColor: '#000',
     shadowOpacity: 0.08,
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 2 },
-    marginBottom: 16,
     marginRight: 11,
-    minWidth: 265,
-    maxWidth: 360
+    width: '100%',
+    height: 120,
+    overflow: 'hidden'
   },
   img: {
-    width: 67,
-    height: 67,
+    width: 100,
+    height: 90,
     borderRadius: 12,
     marginRight: 13,
+
     backgroundColor: '#e5e5e5'
   },
   infoBox: {

@@ -132,7 +132,12 @@ const Home = () => {
             onChangeText={setSearch}
             autoCapitalize='none'
           />
-          <TouchableOpacity style={styles.searchFilterBtn}>
+          <TouchableOpacity
+            style={styles.searchFilterBtn}
+            onPress={() => {
+              router.push('/(stacks)/PropertySearchScreen')
+            }}
+          >
             <Ionicons name='options-outline' size={20} color='#b1b1b1' />
           </TouchableOpacity>
         </View>
