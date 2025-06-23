@@ -160,6 +160,8 @@ const { width, height } = Dimensions.get('window')
 
 export default function PropertyMapScreen () {
   const navigation = useNavigation()
+  const [liked, setLiked] = useState(false)
+
   const [selectedProperty, setSelectedProperty] = useState(PROPERTY_DATA[0])
   const mapRef = useRef(null)
 
@@ -265,8 +267,16 @@ export default function PropertyMapScreen () {
                 </Text>
               </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.heartBtn}>
-              <Text style={{ fontSize: 22, color: '#F44F5A' }}>♥</Text>
+            <TouchableOpacity
+              style={styles.heartBtn}
+              onPress={() => setLiked(l => !l)}
+              activeOpacity={0.7}
+            >
+              <Text
+                style={[styles.heart, { color: liked ? '#F44F5A' : '#000' }]}
+              >
+                ♥
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -431,6 +441,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginTop: 8,
     alignSelf: 'flex-start'
+  },
+  heart: {
+    fontSize: 30
   },
   heartBtn: {
     marginLeft: 8,

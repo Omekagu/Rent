@@ -22,7 +22,7 @@ export default function Layout () {
       />
       <Stack.Screen
         name='NotificationScreen'
-        options={{ title: 'NotificationScreen', headerShown: true }}
+        options={{ title: 'NotificationScreen', headerShown: false }}
       />
       <Stack.Screen
         name='ProfileDetails'

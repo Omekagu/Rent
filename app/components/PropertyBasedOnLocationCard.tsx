@@ -33,49 +33,53 @@ const PropertyBasedOnLocationCard: React.FC<
   onPressFavorite
 }) => {
   return (
-    <View style={styles.card}>
-      <View style={styles.imgBox}>
-        <Image source={{ uri: image }} style={styles.img} />
-        <View style={styles.statusOverlay}>
-          <Text style={styles.statusLabel}>
-            {date} - {status}
-          </Text>
+    <TouchableOpacity
+      onPress={() => router.push('/(stacks)/PropertyMapScreen')}
+    >
+      <View style={styles.card}>
+        <View style={styles.imgBox}>
+          <Image source={{ uri: image }} style={styles.img} />
+          <View style={styles.statusOverlay}>
+            <Text style={styles.statusLabel}>
+              {date} - {status}
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.favBtn}
+            onPress={onPressFavorite}
+            activeOpacity={0.8}
+          >
+            <Ionicons
+              name={isFavorite ? 'heart' : 'heart-outline'}
+              size={26}
+              color='#F44F5A'
+            />
+          </TouchableOpacity>
         </View>
+        <View style={styles.infoRow}>
+          <View style={styles.iconInfo}>
+            <Feather name='droplet' size={18} color='#5b5b5b' />
+            <Text style={styles.iconText}>{baths} baths</Text>
+          </View>
+          <View style={styles.iconInfo}>
+            <Feather name='align-center' size={18} color='#5b5b5b' />
+            <Text style={styles.iconText}>{beds} bedrooms</Text>
+          </View>
+          <View style={styles.iconInfo}>
+            <Feather name='maximize-2' size={18} color='#5b5b5b' />
+            <Text style={styles.iconText}>{sqft.toLocaleString()} sqft</Text>
+          </View>
+        </View>
+        <Text style={styles.price}>${price}</Text>
+        <Text style={styles.address}>{address}</Text>
         <TouchableOpacity
-          style={styles.favBtn}
-          onPress={onPressFavorite}
-          activeOpacity={0.8}
+          style={styles.statusBtn}
+          onPress={() => router.push('/(stacks)/PropertyMapScreen')}
         >
-          <Ionicons
-            name={isFavorite ? 'heart' : 'heart-outline'}
-            size={26}
-            color='#F44F5A'
-          />
+          <Text style={styles.statusBtnText}>Inspect Property</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.infoRow}>
-        <View style={styles.iconInfo}>
-          <Feather name='droplet' size={18} color='#5b5b5b' />
-          <Text style={styles.iconText}>{baths} baths</Text>
-        </View>
-        <View style={styles.iconInfo}>
-          <Feather name='align-center' size={18} color='#5b5b5b' />
-          <Text style={styles.iconText}>{beds} bedrooms</Text>
-        </View>
-        <View style={styles.iconInfo}>
-          <Feather name='maximize-2' size={18} color='#5b5b5b' />
-          <Text style={styles.iconText}>{sqft.toLocaleString()} sqft</Text>
-        </View>
-      </View>
-      <Text style={styles.price}>${price}</Text>
-      <Text style={styles.address}>{address}</Text>
-      <TouchableOpacity
-        style={styles.statusBtn}
-        onPress={() => router.push('/(stacks)/PropertyMapScreen')}
-      >
-        <Text style={styles.statusBtnText}>Full Description </Text>
-      </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   )
 }
 
@@ -155,21 +159,21 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   price: {
-    fontWeight: 'bold',
+    fontWeight: '900',
     color: '#242424',
-    fontSize: 22,
+    fontSize: 19,
     marginTop: 4,
     marginBottom: 2
   },
   address: {
     color: '#686868',
-    fontSize: 15,
+    fontSize: 14,
     marginBottom: 13,
-    fontWeight: '500'
+    fontWeight: '700'
   },
   statusBtn: {
     marginTop: 2,
-    backgroundColor: '#242424',
+    backgroundColor: '#fc8403',
     borderRadius: 10,
     alignSelf: 'flex-start',
     paddingHorizontal: 17,
@@ -177,7 +181,7 @@ const styles = StyleSheet.create({
   },
   statusBtnText: {
     color: '#fff',
-    fontWeight: 'bold',
+    fontWeight: '900',
     fontSize: 15
   }
 })

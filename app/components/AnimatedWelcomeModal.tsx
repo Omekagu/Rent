@@ -48,7 +48,7 @@ const AnimatedWelcomeModal: React.FC<AnimatedWelcomeModalProps> = ({
           duration: 500,
           useNativeDriver: true
         }).start(onClose)
-      }, 20000)
+      }, 2000)
       return () => clearTimeout(timer)
     }
   }, [visible, opacity, translateY, onClose])
