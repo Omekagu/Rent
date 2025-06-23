@@ -319,9 +319,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 15,
     marginBottom: 5,
-    color: '#232323'
+    color: '#232323',
+    letterSpacing: 0.5,
+    transform: [{ translateY: -2 }],
+    textTransform: 'capitalize',
+    lineHeight: 22,
+    textAlign: 'center',
+    textDecorationStyle: 'solid',
+    textDecorationLine: 'underline'
   },
   row: {
     flexDirection: 'row',
@@ -361,7 +368,7 @@ const styles = StyleSheet.create({
   description: {
     marginTop: 2,
     color: '#777',
-    fontSize: 19,
+    fontSize: 17,
     fontWeight: '300',
     lineHeight: 24,
     letterSpacing: 0.5,
