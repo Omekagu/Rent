@@ -115,7 +115,7 @@ export const propertyListWide = [
   }
 ]
 
-export default function PropertySearchScreen () {
+const PropertySearchScreen = () => {
   return (
     <ScrollView
       style={{ padding: 16, marginTop: 30 }}
@@ -127,3 +127,6 @@ export default function PropertySearchScreen () {
     </ScrollView>
   )
 }
+export default PropertySearchScreen
+
+// const styles = StyleSheet.create({

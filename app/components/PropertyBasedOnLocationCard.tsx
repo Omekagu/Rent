@@ -1,4 +1,5 @@
 import { Feather, Ionicons } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React from 'react'
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
@@ -68,7 +69,10 @@ const PropertyBasedOnLocationCard: React.FC<
       </View>
       <Text style={styles.price}>${price}</Text>
       <Text style={styles.address}>{address}</Text>
-      <TouchableOpacity style={styles.statusBtn} onPress={onPressStatus}>
+      <TouchableOpacity
+        style={styles.statusBtn}
+        onPress={() => router.push('/(stacks)/PropertyMapScreen')}
+      >
         <Text style={styles.statusBtnText}>Full Description </Text>
       </TouchableOpacity>
     </View>

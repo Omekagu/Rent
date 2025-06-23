@@ -71,7 +71,7 @@ const AnimatedWelcomeModal: React.FC<AnimatedWelcomeModalProps> = ({
           />
           <Text style={styles.hello}>Hello Hunter</Text>
           <Text style={styles.caption}>
-            Hope you catch your dream house following through!
+            Hope you hunt down your dream house!
           </Text>
         </Animated.View>
       </View>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     zIndex: 9999
   },
   popup: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(40,40,40,0.18)',
     borderRadius: 26,
     paddingVertical: 34,
     paddingHorizontal: 34,

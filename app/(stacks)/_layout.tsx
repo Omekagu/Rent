@@ -5,29 +5,12 @@ export default function Layout () {
   return (
     <Stack>
       <Stack.Screen
-        name='AiBookingScreen'
-        options={{
-          title: 'Fast AI Flight Booking',
-          headerShown: true,
-          headerStyle: { backgroundColor: '#144045' },
-          headerTitleStyle: { color: '#eee', fontSize: 13, fontWeight: '700' }
-        }}
-      />
-      <Stack.Screen
         name='PropertySearchScreen'
         options={{ title: 'Property Search', headerShown: false }}
       />
       <Stack.Screen
-        name='ManualBookingScreen'
-        options={{ title: 'manualBookingScreen', headerShown: false }}
-      />
-      <Stack.Screen
-        name='BookingListScreen'
-        options={{ title: 'BookingListScreen', headerShown: false }}
-      />
-      <Stack.Screen
-        name='FlightDetailScreen'
-        options={{ title: 'FlightDetailScreen', headerShown: false }}
+        name='PropertyMapScreen'
+        options={{ title: 'Property Map', headerShown: false }}
       />
       <Stack.Screen
         name='ProfileScreen'
@@ -36,10 +19,6 @@ export default function Layout () {
       <Stack.Screen
         name='SettingsScreen'
         options={{ title: 'SettingsScreen', headerShown: true }}
-      />
-      <Stack.Screen
-        name='BookingDetailScreen'
-        options={{ title: 'BookingDetailScreen', headerShown: true }}
       />
       <Stack.Screen
         name='NotificationScreen'
