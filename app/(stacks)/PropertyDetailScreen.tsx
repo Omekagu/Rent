@@ -34,6 +34,10 @@ const media = [
   },
   {
     type: 'video',
+    uri: 'https://videos.pexels.com/video-files/4307346/4307346-hd_1920_1080_30fps.mp4'
+  },
+  {
+    type: 'video',
     uri: 'https://videos.pexels.com/video-files/3769966/3769966-hd_1920_1080_25fps.mp4'
   },
   {
@@ -43,6 +47,10 @@ const media = [
   {
     type: 'image',
     uri: 'https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg'
+  },
+  {
+    type: 'video',
+    uri: 'https://videos.pexels.com/video-files/7348145/7348145-uhd_2560_1440_25fps.mp4'
   }
 ]
 
