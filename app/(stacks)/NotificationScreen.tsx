@@ -69,7 +69,8 @@ const MESSAGE_DATA = [
   {
     id: '6',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Bagus Prasetyo',
     verified: false,
     time: '14 Feb 2025',
@@ -79,7 +80,8 @@ const MESSAGE_DATA = [
   {
     id: '7',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Benjamin Okeke',
     verified: false,
     time: '19 mar 2025',
@@ -89,7 +91,8 @@ const MESSAGE_DATA = [
   {
     id: '8',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Omejah Syaiful',
     verified: false,
     time: '12 jan 2025',
@@ -99,7 +102,8 @@ const MESSAGE_DATA = [
   {
     id: '9',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Hannah Nwosu',
     verified: false,
     time: '10 jun 2025',
@@ -109,7 +113,8 @@ const MESSAGE_DATA = [
   {
     id: '10',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Angus santa Claus',
     verified: false,
     time: '14 dec 2025',
@@ -119,7 +124,8 @@ const MESSAGE_DATA = [
   {
     id: '11',
     type: 'message',
-    avatar: 'https://randomuser.me/api/portraits/men/13.jpg',
+    avatar:
+      'https://i.postimg.cc/wvZrFxDG/Whats-App-Image-2025-05-22-at-16-06-27-0a4576f9.jpg',
     name: 'Yzkvng Ebuka',
     verified: false,
     time: '1 Feb 2025',
