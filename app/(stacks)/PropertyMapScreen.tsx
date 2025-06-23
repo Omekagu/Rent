@@ -241,8 +241,6 @@ export default function PropertyMapScreen () {
               style={styles.cardImg}
             />
             <View style={{ flex: 1, marginLeft: 12 }}>
-              <Text style={styles.cardTitle}>{selectedProperty.title}</Text>
-              <Text style={styles.cardAddress}>{selectedProperty.address}</Text>
               <View style={styles.ownerRow}>
                 <Image
                   source={{ uri: selectedProperty.owner.avatar }}
@@ -252,6 +250,9 @@ export default function PropertyMapScreen () {
                   {selectedProperty.owner.name}
                 </Text>
               </View>
+              <Text style={styles.cardTitle}>{selectedProperty.title}</Text>
+              <Text style={styles.cardAddress}>{selectedProperty.address}</Text>
+
               <Text style={styles.cardDesc} numberOfLines={2}>
                 {selectedProperty.desc}
               </Text>
@@ -351,7 +352,7 @@ const styles = StyleSheet.create({
   priceTextActive: {
     marginTop: 2,
     color: '#fff',
-    backgroundColor: '#295DFB',
+    backgroundColor: '#fc8403',
     fontWeight: 'bold',
     fontSize: 13,
     paddingHorizontal: 7,
@@ -424,7 +425,7 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   detailBtn: {
-    backgroundColor: '#295DFB',
+    backgroundColor: '#fc8403',
     paddingHorizontal: 13,
     paddingVertical: 8,
     borderRadius: 5,

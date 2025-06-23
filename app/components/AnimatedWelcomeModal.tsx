@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     zIndex: 9999
   },
   popup: {
-    backgroundColor: 'rgba(40,40,40,0.18)',
+    backgroundColor: '#fff',
     borderRadius: 26,
     paddingVertical: 34,
     paddingHorizontal: 34,
@@ -120,9 +120,9 @@ const styles = StyleSheet.create({
     letterSpacing: 0.2
   },
   caption: {
-    fontSize: 15,
-    color: '#7a7a7a',
-    fontWeight: '600',
+    fontSize: 10,
+    color: '#000',
+    fontWeight: '900',
     textAlign: 'center'
   }
 })
