@@ -21,7 +21,7 @@ import {
 } from 'react-native'
 
 const { width } = Dimensions.get('window')
-const PREVIEW_HEIGHT = 280
+const PREVIEW_HEIGHT = 380
 
 const media = [
   {
@@ -121,7 +121,13 @@ const PropertyDetailScreen = () => {
           setCurrentIndex(index)
         }}
         renderItem={renderMedia}
-        contentContainerStyle={{ alignItems: 'center', paddingHorizontal: 0 }}
+        contentContainerStyle={{
+          alignItems: 'center',
+          paddingTop: 60,
+          marginTop: 150,
+          paddingBottom: 100,
+          paddingHorizontal: width * 0.04
+        }}
         getItemLayout={(_, index) => ({
           length: width * 0.92,
           offset: width * 0.92 * index,
@@ -232,7 +238,7 @@ const PropertyDetailScreen = () => {
       <View style={styles.bottomBar}>
         <View>
           <Text style={styles.priceLabel}>Start from</Text>
-          <Text style={styles.price}>$45.00</Text>
+          <Text style={styles.price}>$4,500</Text>
         </View>
         <TouchableOpacity style={styles.rentBtn}>
           <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}>
@@ -329,16 +335,16 @@ const styles = StyleSheet.create({
     color: '#232323'
   },
   sectionLabel: {
-    marginTop: 10,
+    marginTop: 5,
     fontWeight: 'bold',
     color: '#232323',
-    fontSize: 14
+    fontSize: 12
   },
   address: {
     color: '#555',
     fontSize: 13,
     marginTop: 2,
-    fontWeight: '700'
+    fontWeight: '300'
   },
   facilitiesRow: {
     flexDirection: 'row',
@@ -356,6 +362,9 @@ const styles = StyleSheet.create({
     marginTop: 2,
     color: '#777',
     fontSize: 19,
+    fontWeight: '300',
+    lineHeight: 24,
+    letterSpacing: 0.5,
     marginBottom: 14
   },
   ownerActions: {
@@ -424,6 +433,7 @@ const styles = StyleSheet.create({
   modalMedia: {
     width: width * 0.95,
     height: width * 1.05,
+
     resizeMode: 'contain',
     borderRadius: 20
   },
@@ -431,10 +441,10 @@ const styles = StyleSheet.create({
     width: width * 0.92,
     borderRadius: 16,
     marginRight: 8,
-    marginTop: 50,
     marginBottom: 30,
     overflow: 'hidden',
     backgroundColor: '#fff'
+    // marginTop: 10
   },
   modalCloseBtn: {
     position: 'absolute',
