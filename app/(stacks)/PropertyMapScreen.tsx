@@ -260,7 +260,7 @@ export default function PropertyMapScreen () {
               </Text>
               <TouchableOpacity
                 style={styles.detailBtn}
-                onPress={() => router.push('/')}
+                onPress={() => router.push('/(stacks)/PropertyDetailScreen')}
               >
                 <Text style={{ color: '#fff', fontWeight: 'bold' }}>
                   Get more details

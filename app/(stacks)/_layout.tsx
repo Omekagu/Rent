@@ -13,6 +13,10 @@ export default function Layout () {
         options={{ title: 'Property Map', headerShown: false }}
       />
       <Stack.Screen
+        name='PropertyDetailScreen'
+        options={{ title: 'Property Detail', headerShown: false }}
+      />
+      <Stack.Screen
         name='ProfileScreen'
         options={{ title: 'ProfileScreen', headerShown: true }}
       />
