@@ -20,6 +20,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
+import { Modalize } from 'react-native-modalize'
 
 const { width } = Dimensions.get('window')
 const PREVIEW_HEIGHT = 380
@@ -59,6 +60,11 @@ const PropertyDetailScreen = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [modalVisible, setModalVisible] = useState(false)
   const flatListRef = useRef<FlatList>(null)
+  const bottomSheetRef = useRef(null)
+
+  const onOpenBottomSheet = () => {
+    bottomSheetRef.current?.open()
+  }
 
   const openMediaModal = (index: number) => {
     setCurrentIndex(index)
@@ -103,7 +109,7 @@ const PropertyDetailScreen = () => {
       {/* Header Buttons */}
       <View style={styles.topActions}>
         <TouchableOpacity style={styles.iconBtn} onPress={() => router.back()}>
-          <Ionicons name='arrow-back' size={22} color='#333' />
+          <FontAwesome name='angle-left' size={36} color='#222' />
         </TouchableOpacity>
         <View style={{ flexDirection: 'row', gap: 12 }}>
           <TouchableOpacity style={styles.iconBtn}>
@@ -271,12 +277,29 @@ const PropertyDetailScreen = () => {
           <Text style={styles.priceLabel}>Start from</Text>
           <Text style={styles.price}>$4,500</Text>
         </View>
-        <TouchableOpacity style={styles.rentBtn}>
+        <TouchableOpacity style={styles.rentBtn} onPress={onOpenBottomSheet}>
           <Text style={{ color: '#fff', fontWeight: 'bold', fontSize: 16 }}>
             Rent Now
           </Text>
         </TouchableOpacity>
       </View>
+
+      {/* Bottom Sheet */}
+      <Modalize ref={bottomSheetRef} adjustToContentHeight>
+        <View style={styles.sheetContainer}>
+          <Text style={styles.sheetTitle}>Choose Payment Method</Text>
+          {[
+            'Bank Transfer',
+            'Pay with Your Card',
+            'Pay With Cryptocurrency',
+            'Use Hunters Wallet'
+          ].map(method => (
+            <TouchableOpacity key={method} style={styles.paymentOption}>
+              <Text style={styles.paymentText}>{method}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </Modalize>
     </SafeAreaView>
   )
 }
@@ -489,5 +512,21 @@ const styles = StyleSheet.create({
     top: 30,
     right: 20,
     zIndex: 100
+  },
+  sheetContainer: {
+    padding: 20
+  },
+  sheetTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 12
+  },
+  paymentOption: {
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#eee'
+  },
+  paymentText: {
+    fontSize: 16
   }
 })

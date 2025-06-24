@@ -249,8 +249,11 @@ export default function ReviewScreen () {
         />
       </ScrollView>
       {/* Write a Review Button */}
-      <TouchableOpacity style={styles.writeBtn}>
-        <Text style={styles.writeBtnText}>Write a Review</Text>
+      <TouchableOpacity
+        style={styles.writeBtn}
+        onPress={() => router.push('/(stacks)/WriteReviewScreen')}
+      >
+        <Text style={styles.writeBtnText}>Leave a Review</Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
@@ -360,13 +363,17 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 57,
-    backgroundColor: '#16a085',
+    marginHorizontal: 16,
+    borderRadius: 10,
+    marginBottom: 16,
+    backgroundColor: '#fc8403',
     alignItems: 'center',
     justifyContent: 'center'
   },
   writeBtnText: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 16
+    fontSize: 16,
+    letterSpacing: 1
   }
 })
