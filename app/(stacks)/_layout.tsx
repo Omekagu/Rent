@@ -17,6 +17,10 @@ export default function Layout () {
         options={{ title: 'Property Detail', headerShown: false }}
       />
       <Stack.Screen
+        name='ReviewScreen'
+        options={{ title: 'Review', headerShown: false }}
+      />
+      <Stack.Screen
         name='ProfileScreen'
         options={{ title: 'ProfileScreen', headerShown: true }}
       />

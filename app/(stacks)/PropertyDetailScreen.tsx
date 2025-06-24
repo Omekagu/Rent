@@ -1,6 +1,7 @@
 import {
   Feather,
   FontAwesome,
+  Fontisto,
   Ionicons,
   MaterialIcons
 } from '@expo/vector-icons'
@@ -190,11 +191,33 @@ const PropertyDetailScreen = () => {
         contentContainerStyle={{ alignItems: 'center', paddingBottom: 120 }}
       >
         <View style={styles.card}>
-          <Text style={styles.title}>Elegwushin Mansion Building</Text>
+          <Text style={styles.title}>Elegwushin White Mansion</Text>
           <View style={styles.row}>
+            <FontAwesome name='star' color='#FFD600' size={18} />
+            <FontAwesome name='star' color='#FFD600' size={18} />
+            <FontAwesome name='star' color='#FFD600' size={18} />
+            <FontAwesome name='star' color='#FFD600' size={18} />
             <FontAwesome name='star' color='#FFD600' size={18} />
             <Text style={styles.rating}>5.0</Text>
           </View>
+          <TouchableOpacity
+            onPress={() => router.push('/(stacks)/ReviewScreen')}
+            style={styles.row}
+          >
+            <Fontisto name='comments' size={18} color='black' />
+            <Text
+              style={{
+                fontSize: 16,
+                marginLeft: 5,
+                fontWeight: '400',
+                textDecorationStyle: 'solid',
+                textDecorationLine: 'underline'
+              }}
+            >
+              30 Reviews
+            </Text>
+          </TouchableOpacity>
+
           <Text style={styles.sectionLabel}>Address</Text>
           <Text style={styles.address}>
             2426 Nutters Born Lane{'\n'}Kelley, IA 50134{'\n'}Elegwushin, Lagos
@@ -327,7 +350,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 18,
     marginBottom: 5,
     color: '#232323',
     letterSpacing: 0.5,
