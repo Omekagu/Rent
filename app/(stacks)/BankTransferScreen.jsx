@@ -51,7 +51,7 @@ export default function BankTransferScreen ({ navigation }) {
       setStep(4)
       setTimeout(() => {
         router.replace('/(tabs)/HistoryScreen')
-      }, 2100)
+      }, 4100)
     }, 1700)
   }
 
@@ -78,7 +78,7 @@ export default function BankTransferScreen ({ navigation }) {
                   <TouchableOpacity
                     onPress={() => handleCopy(bank.accountNumber, index)}
                   >
-                    <Ionicons name='copy-outline' size={20} color='#007bff' />
+                    <Ionicons name='copy-outline' size={20} color='#fc8403' />
                   </TouchableOpacity>
                 </View>
                 {copiedBank === index && (
@@ -99,10 +99,10 @@ export default function BankTransferScreen ({ navigation }) {
               verify and process your deposit.
             </Text>
             <TouchableOpacity style={styles.uploadBox}>
-              <Ionicons name='cloud-upload-outline' size={38} color='#007bff' />
+              <Ionicons name='cloud-upload-outline' size={38} color='#fc8403' />
               <Text
                 style={{
-                  color: '#007bff',
+                  color: '#fc8403',
                   marginTop: 10,
                   fontSize: 16,
                   fontWeight: '600'
@@ -124,7 +124,7 @@ export default function BankTransferScreen ({ navigation }) {
           <View style={styles.centered}>
             <ActivityIndicator
               size='large'
-              color='#007bff'
+              color='#fc8403'
               style={{ marginBottom: 24 }}
             />
             <Text style={styles.title}>Processing...</Text>
@@ -145,8 +145,8 @@ export default function BankTransferScreen ({ navigation }) {
             <Text style={styles.title}>Congratulations!</Text>
             <Text style={styles.subtitle}>
               Your proof of payment has been submitted successfully.
-              Congratulations on your house hunt down!{'\n\n'}You will be
-              redirected to your transaction history.
+              Congratulations on your house hunt down!{'\n\n'}Wait, while You
+              are been redirected to your transaction history.
             </Text>
           </View>
         )}
@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     marginBottom: 15,
+    marginHorizontal: 10,
     elevation: 2
   },
   bankName: {
@@ -211,9 +212,9 @@ const styles = StyleSheet.create({
   },
   proofBtn: {
     marginTop: 30,
-    backgroundColor: '#007bff',
-    paddingVertical: 14,
-    borderRadius: 8,
+    backgroundColor: '#fc8403',
+    padding: 14,
+    borderRadius: 4,
     alignItems: 'center'
   },
   proofBtnText: {
@@ -231,7 +232,7 @@ const styles = StyleSheet.create({
   uploadBox: {
     backgroundColor: '#f2f6fa',
     borderWidth: 1.5,
-    borderColor: '#007bff55',
+    borderColor: '#fc840355',
     borderStyle: 'dashed',
     borderRadius: 11,
     width: 170,

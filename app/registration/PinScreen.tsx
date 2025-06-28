@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     color: '#000'
   },
   forgotText: {
-    color: '#007bff',
+    color: '#fc8403',
     fontSize: 14,
     marginBottom: 10
   }

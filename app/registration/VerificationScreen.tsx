@@ -1,14 +1,14 @@
 import { router } from 'expo-router'
 import React, { useRef, useState } from 'react'
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
+  Image,
   KeyboardAvoidingView,
   Platform,
-  Image
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from 'react-native'
 
 const VerificationScreen = () => {
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     color: '#000'
   },
   resendText: {
-    color: '#007bff',
+    color: '#fc8403',
     fontSize: 14
   }
 })
