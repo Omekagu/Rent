@@ -66,6 +66,13 @@ const PropertyDetailScreen = () => {
     bottomSheetRef.current?.open()
   }
 
+  const paymentRoutes = {
+    'Bank Transfer': 'BankTransferScreen',
+    'Pay with Your Card': 'BankCardScreen',
+    'Pay With Cryptocurrency': 'CryptocurrencyScreen',
+    'Use Hunters Wallet': 'HunterswalletScreen'
+  }
+
   const openMediaModal = (index: number) => {
     setCurrentIndex(index)
     setModalVisible(true)
@@ -288,13 +295,12 @@ const PropertyDetailScreen = () => {
       <Modalize ref={bottomSheetRef} adjustToContentHeight>
         <View style={styles.sheetContainer}>
           <Text style={styles.sheetTitle}>Choose Payment Method</Text>
-          {[
-            'Bank Transfer',
-            'Pay with Your Card',
-            'Pay With Cryptocurrency',
-            'Use Hunters Wallet'
-          ].map(method => (
-            <TouchableOpacity key={method} style={styles.paymentOption}>
+          {Object.keys(paymentRoutes).map(method => (
+            <TouchableOpacity
+              key={method}
+              style={styles.paymentOption}
+              onPress={() => router.push(paymentRoutes[method])} // step 3
+            >
               <Text style={styles.paymentText}>{method}</Text>
             </TouchableOpacity>
           ))}

@@ -32,7 +32,7 @@ export default function _layout () {
             case 'Profile':
               iconName = focused ? 'person' : 'person-outline'
               break
-            case 'Booking':
+            case 'HistoryScreen':
               iconName = focused ? 'book' : 'book-outline'
               break
           }
@@ -52,7 +52,7 @@ export default function _layout () {
     >
       <Tabs.Screen name='Home' />
       <Tabs.Screen name='Errand' />
-      <Tabs.Screen name='Booking' />
+      <Tabs.Screen name='HistoryScreen' />
       <Tabs.Screen name='Status' />
       <Tabs.Screen name='Profile' />
     </Tabs>

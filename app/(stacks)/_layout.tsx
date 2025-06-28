@@ -37,6 +37,22 @@ export default function Layout () {
         options={{ title: 'NotificationScreen', headerShown: false }}
       />
       <Stack.Screen
+        name='BankCardScreen'
+        options={{ title: 'BankCardScreen', headerShown: false }}
+      />
+      <Stack.Screen
+        name='BankTransferScreen'
+        options={{ title: 'BankTransferScreen', headerShown: false }}
+      />
+      <Stack.Screen
+        name='HunterswalletScreen'
+        options={{ title: 'HunterswalletScreen', headerShown: false }}
+      />
+      <Stack.Screen
+        name='CryptocurrencyScreen'
+        options={{ title: 'CryptocurrencyScreen', headerShown: false }}
+      />
+      <Stack.Screen
         name='ProfileDetails'
         options={{ title: 'ProfileDetails', headerShown: false }}
       />
