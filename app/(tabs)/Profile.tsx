@@ -1,4 +1,10 @@
-import { Fontisto } from '@expo/vector-icons'
+import {
+  FontAwesome5,
+  Fontisto,
+  Ionicons,
+  MaterialIcons,
+  Octicons
+} from '@expo/vector-icons'
 import { router } from 'expo-router'
 import React from 'react'
 import {
@@ -11,46 +17,45 @@ import {
   TouchableOpacity,
   View
 } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
 const settingsOptions = [
   {
-    icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
+    icon: <Ionicons name='person' size={22} color='#5A6FF0' />,
     label: 'Personal Details',
     onPress: () => {
       router.push('/(stacks)/ProfileDetails')
     }
   },
   {
-    icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
+    icon: <Ionicons name='create' size={24} color='black' />,
     label: 'Create Property',
     onPress: () => {
       router.push('/(stacks)/CreatePropertyScreen')
     }
   },
   {
-    icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
+    icon: <MaterialIcons name='payment' size={24} color='black' />,
     label: 'Manage Payment',
     onPress: () => {
       router.push('/(stacks)/ManagePaymentScreen')
     }
   },
   {
-    icon: <Icon name='lock-outline' size={22} color='#B06AF9' />,
+    icon: <MaterialIcons name='privacy-tip' size={24} color='black' />,
     label: 'Privacy & Security',
     onPress: () => {
       router.push('/(stacks)/PrivacyScreen')
     }
   },
   {
-    icon: <Icon name='bell-outline' size={22} color='#A15CFC' />,
+    icon: <Ionicons name='notifications-outline' size={22} color='#A15CFC' />,
     label: 'Notification',
     onPress: () => {
       router.push('/(stacks)/NotificationScreen')
     }
   },
   {
-    icon: <Icon name='file-document-outline' size={22} color='#FFD600' />,
+    icon: <Octicons name='law' size={22} color='#FFD600' />,
     label: 'Legal Document',
     onPress: () => {
       router.push('/(stacks)/LegalScreen')
@@ -64,14 +69,14 @@ const settingsOptions = [
     }
   },
   {
-    icon: <Icon name='brightness-6' size={22} color='#0BDF9A' />,
+    icon: <FontAwesome5 name='themeco' size={22} color='#0BDF9A' />,
     label: 'Theme',
     onPress: () => {
       router.push('/(stacks)/ThemeScreen')
     }
   },
   {
-    icon: <Icon name='palette-outline' size={22} color='#F05A89' />,
+    icon: <MaterialIcons name='insert-emoticon' size={22} color='#F05A89' />,
     label: 'Custom app icon',
     onPress: () => {
       router.push('/(stacks)/CustomAppIconScreen')
@@ -134,7 +139,7 @@ export default function Profile () {
               alignItems: 'center'
             }}
           >
-            <Icon
+            <Ionicons
               name='star-outline'
               size={16}
               color='#000'
@@ -196,7 +201,7 @@ export default function Profile () {
               padding: 4
             }}
           >
-            <Icon name='content-copy' size={18} color='#143881' />
+            <Ionicons name='copy' size={18} color='#143881' />
           </TouchableOpacity>
         </View>
       </View>
@@ -210,12 +215,12 @@ export default function Profile () {
             >
               <View style={styles.iconBox}>{item.icon}</View>
               <Text style={styles.label}>{item.label}</Text>
-              <Icon name='chevron-right' size={22} color='#C6C6C6' />
+              <Ionicons name='chevron-forward' size={22} color='#C6C6C6' />
             </TouchableOpacity>
           ))}
         </View>
         <View style={styles.section}>
-          {settingsOptions.slice(2, 6).map((item, idx) => (
+          {settingsOptions.slice(3, 8).map((item, idx) => (
             <TouchableOpacity
               key={idx}
               style={styles.itemRow}
@@ -223,14 +228,14 @@ export default function Profile () {
             >
               <View style={styles.iconBox}>{item.icon}</View>
               <Text style={styles.label}>{item.label}</Text>
-              <Icon name='chevron-right' size={22} color='#C6C6C6' />
+              <Ionicons name='chevron-forward' size={22} color='#C6C6C6' />
             </TouchableOpacity>
           ))}
         </View>
         <View style={styles.section}>
           <TouchableOpacity style={styles.itemRow} onPress={() => {}}>
             <View style={styles.iconBox}>
-              <Icon name='logout' size={22} color='#5A6FF0' />
+              <Ionicons name='log-out-outline' size={22} color='#5A6FF0' />
             </View>
             <Text style={styles.label}>Log Out</Text>
           </TouchableOpacity>
@@ -241,7 +246,7 @@ export default function Profile () {
             onPress={() => {}}
           >
             <View style={styles.iconBox}>
-              <Icon name='close' size={22} color='#F05A89' />
+              <Ionicons name='close' size={22} color='#F05A89' />
             </View>
             <Text style={[styles.label, styles.dangerText]}>Close Account</Text>
           </TouchableOpacity>
