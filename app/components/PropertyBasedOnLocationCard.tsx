@@ -29,7 +29,6 @@ const PropertyBasedOnLocationCard: React.FC<
   sqft,
   price,
   address,
-  onPressStatus,
   onPressFavorite
 }) => {
   return (

@@ -26,7 +26,7 @@ const PropertySearchCard: React.FC<PropertySearchCardProps> = ({
 }) => {
   return (
     <TouchableOpacity
-      onPress={() => router.push('/(stacks)/PropertyMapScreens')}
+      onPress={() => router.push('/(stacks)/PropertyMapScreen')}
     >
       <View style={styles.card}>
         <Image source={{ uri: image }} style={styles.img} />

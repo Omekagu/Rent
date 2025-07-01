@@ -17,7 +17,7 @@ const Status = () => {
   const [routeTo, setRouteTo] = useState('')
   const [trackingOption, setTrackingOption] = useState('flight') // 'flight', 'route', 'random'
 
-  const renderFlightSearch = () => (
+  const renderRentSearch = () => (
     <View style={styles.inputGroup}>
       <TextInput
         placeholder='Airline eg. British Airways'
@@ -25,7 +25,7 @@ const Status = () => {
         placeholderTextColor='#ccc'
       />
       <TextInput
-        placeholder='Flight Number (e.g. BA203)'
+        placeholder='Rent Number (e.g. BA203)'
         style={styles.input}
         placeholderTextColor='#ccc'
       />
@@ -38,7 +38,7 @@ const Status = () => {
 
       <TouchableOpacity style={styles.trackButton}>
         <Ionicons name='search' size={22} color='#fff' />
-        <Text style={styles.trackButtonText}>Track Flight</Text>
+        <Text style={styles.trackButtonText}>Track Rent</Text>
       </TouchableOpacity>
     </View>
   )
@@ -84,7 +84,7 @@ const Status = () => {
   const renderRandomTracker = () => (
     <TouchableOpacity style={[styles.trackButton, { marginTop: 30 }]}>
       <Ionicons name='shuffle' size={22} color='#fff' />
-      <Text style={styles.trackButtonText}>Track Random Flight</Text>
+      <Text style={styles.trackButtonText}>Track Random Rent</Text>
     </TouchableOpacity>
   )
 
@@ -103,7 +103,7 @@ const Status = () => {
             marginTop: 20
           }}
         >
-          <Text style={styles.title}>Track Flight Status</Text>
+          <Text style={styles.title}>Track Rent Status</Text>
           <Text style={styles.title}>
             <FontAwesome6 name='newspaper' size={24} color='#fff' />
           </Text>
@@ -113,11 +113,11 @@ const Status = () => {
           <TouchableOpacity
             style={[
               styles.switchButton,
-              trackingOption === 'flight' && styles.activeButton
+              trackingOption === 'Rent' && styles.activeButton
             ]}
-            onPress={() => setTrackingOption('flight')}
+            onPress={() => setTrackingOption('Rent')}
           >
-            <Text style={styles.switchText}>Search by Flight</Text>
+            <Text style={styles.switchText}>Search by Rent</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[
@@ -135,11 +135,11 @@ const Status = () => {
             ]}
             onPress={() => setTrackingOption('random')}
           >
-            <Text style={styles.switchText}>Random Flight</Text>
+            <Text style={styles.switchText}>Random Rent</Text>
           </TouchableOpacity>
         </View>
 
-        {trackingOption === 'flight' && renderFlightSearch()}
+        {trackingOption === 'Rent' && renderRentSearch()}
         {trackingOption === 'route' && renderRouteSearch()}
         {trackingOption === 'random' && renderRandomTracker()}
       </ScrollView>

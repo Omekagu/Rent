@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 type RoomCardProps = {
   image: string
@@ -18,28 +19,32 @@ const RoomCard: React.FC<RoomCardProps> = ({
   rating
 }) => {
   return (
-    <View style={styles.card}>
-      <Image source={{ uri: image }} style={styles.img} />
-      {/* Star & rating */}
-      <View style={styles.ratingBox}>
-        <Ionicons name='star' color='#FFC529' size={15} />
-        <Text style={styles.ratingText}>{rating}</Text>
-      </View>
-      {/* Info area */}
-      <View style={styles.infoBox}>
-        <Text style={styles.name}>{name}</Text>
-        <View style={styles.row}>
-          <Ionicons
-            name='location-sharp'
-            color='#fff'
-            size={13}
-            style={{ marginRight: 3 }}
-          />
-          <Text style={styles.locText}>{location}</Text>
-          <Text style={styles.price}>${price}</Text>
+    <TouchableOpacity
+      onPress={() => router.push('/(stacks)/PropertyMapScreen')}
+    >
+      <View style={styles.card}>
+        <Image source={{ uri: image }} style={styles.img} />
+        {/* Star & rating */}
+        <View style={styles.ratingBox}>
+          <Ionicons name='star' color='#FFC529' size={15} />
+          <Text style={styles.ratingText}>{rating}</Text>
+        </View>
+        {/* Info area */}
+        <View style={styles.infoBox}>
+          <Text style={styles.name}>{name}</Text>
+          <View style={styles.row}>
+            <Ionicons
+              name='location-sharp'
+              color='#fff'
+              size={13}
+              style={{ marginRight: 3 }}
+            />
+            <Text style={styles.locText}>{location}</Text>
+            <Text style={styles.price}>${price}</Text>
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
