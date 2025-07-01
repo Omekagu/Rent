@@ -25,14 +25,14 @@ const settingsOptions = [
     icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
     label: 'Create Property',
     onPress: () => {
-      router.push('/(stacks)/ProfileDetails')
+      router.push('/(stacks)/CreatePropertyScreen')
     }
   },
   {
     icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
     label: 'Manage Payment',
     onPress: () => {
-      router.push('/(stacks)/ProfileDetails')
+      router.push('/(stacks)/ManagePaymentScreen')
     }
   },
   {

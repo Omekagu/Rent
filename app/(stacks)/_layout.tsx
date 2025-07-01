@@ -29,6 +29,14 @@ export default function Layout () {
         options={{ title: 'ProfileScreen', headerShown: true }}
       />
       <Stack.Screen
+        name='CreatePropertyScreen'
+        options={{ title: 'CreatePropertyScreen', headerShown: false }}
+      />
+      <Stack.Screen
+        name='ManagePaymentScreen'
+        options={{ title: 'ManagePaymentScreen', headerShown: false }}
+      />
+      <Stack.Screen
         name='SettingsScreen'
         options={{ title: 'SettingsScreen', headerShown: true }}
       />
