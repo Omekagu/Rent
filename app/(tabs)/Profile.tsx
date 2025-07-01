@@ -2,6 +2,7 @@ import { Fontisto } from '@expo/vector-icons'
 import { router } from 'expo-router'
 import React from 'react'
 import {
+  Clipboard,
   Image,
   SafeAreaView,
   ScrollView,
@@ -16,6 +17,20 @@ const settingsOptions = [
   {
     icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
     label: 'Personal Details',
+    onPress: () => {
+      router.push('/(stacks)/ProfileDetails')
+    }
+  },
+  {
+    icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
+    label: 'Create Property',
+    onPress: () => {
+      router.push('/(stacks)/ProfileDetails')
+    }
+  },
+  {
+    icon: <Icon name='account-outline' size={22} color='#5A6FF0' />,
+    label: 'Manage Payment',
     onPress: () => {
       router.push('/(stacks)/ProfileDetails')
     }
@@ -173,7 +188,7 @@ export default function Profile () {
           </Text>
           <TouchableOpacity
             onPress={() => {
-              // Clipboard.setString('https://refer.yourapp.com/invite/YAZ1231');
+              Clipboard.setString('https://refer.yourapp.com/invite/YAZ1231')
               // You can show a toast/snackbar here
             }}
             style={{
@@ -187,7 +202,7 @@ export default function Profile () {
       </View>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         <View style={styles.section}>
-          {settingsOptions.slice(0, 2).map((item, idx) => (
+          {settingsOptions.slice(0, 3).map((item, idx) => (
             <TouchableOpacity
               key={idx}
               style={styles.itemRow}
