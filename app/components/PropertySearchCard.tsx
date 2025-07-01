@@ -1,6 +1,7 @@
 import { Ionicons, MaterialIcons } from '@expo/vector-icons'
+import { router } from 'expo-router'
 import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 type PropertySearchCardProps = {
   image: string
@@ -24,40 +25,44 @@ const PropertySearchCard: React.FC<PropertySearchCardProps> = ({
   rating
 }) => {
   return (
-    <View style={styles.card}>
-      <Image source={{ uri: image }} style={styles.img} />
-      <View style={styles.infoBox}>
-        <Text style={styles.title} numberOfLines={1}>
-          {title}
-        </Text>
-        <Text style={styles.address} numberOfLines={1}>
-          {address}
-        </Text>
-        {/* Icons Row */}
-        <View style={styles.iconRow}>
-          <View style={styles.iconItem}>
-            <Ionicons name='bed-outline' size={18} color='#888' />
-            <Text style={styles.iconText}>{beds}</Text>
+    <TouchableOpacity
+      onPress={() => router.push('/(stacks)/PropertyMapScreens')}
+    >
+      <View style={styles.card}>
+        <Image source={{ uri: image }} style={styles.img} />
+        <View style={styles.infoBox}>
+          <Text style={styles.title} numberOfLines={1}>
+            {title}
+          </Text>
+          <Text style={styles.address} numberOfLines={1}>
+            {address}
+          </Text>
+          {/* Icons Row */}
+          <View style={styles.iconRow}>
+            <View style={styles.iconItem}>
+              <Ionicons name='bed-outline' size={18} color='#888' />
+              <Text style={styles.iconText}>{beds}</Text>
+            </View>
+            <View style={styles.iconItem}>
+              <MaterialIcons name='garage' size={18} color='#888' />
+              <Text style={styles.iconText}>{garages}</Text>
+            </View>
+            <View style={styles.iconItem}>
+              <Ionicons name='water-outline' size={18} color='#888' />
+              <Text style={styles.iconText}>{baths}</Text>
+            </View>
           </View>
-          <View style={styles.iconItem}>
-            <MaterialIcons name='garage' size={18} color='#888' />
-            <Text style={styles.iconText}>{garages}</Text>
-          </View>
-          <View style={styles.iconItem}>
-            <Ionicons name='water-outline' size={18} color='#888' />
-            <Text style={styles.iconText}>{baths}</Text>
-          </View>
-        </View>
-        {/* Price and Rating */}
-        <View style={styles.rowBottom}>
-          <Text style={styles.price}>from ${price}/month</Text>
-          <View style={styles.ratingBox}>
-            <Ionicons name='star' color='#FFC529' size={17} />
-            <Text style={styles.ratingText}>{rating}</Text>
+          {/* Price and Rating */}
+          <View style={styles.rowBottom}>
+            <Text style={styles.price}>from ${price}/month</Text>
+            <View style={styles.ratingBox}>
+              <Ionicons name='star' color='#FFC529' size={17} />
+              <Text style={styles.ratingText}>{rating}</Text>
+            </View>
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
