@@ -37,6 +37,18 @@ export default function Layout () {
         options={{ title: 'NotificationScreen', headerShown: false }}
       />
       <Stack.Screen
+        name='ChatScreen'
+        options={{
+          title: 'ChatScreen',
+          headerShown: true,
+          headerTintColor: '#000'
+        }}
+      />
+      <Stack.Screen
+        name='NotificationDetailScreen'
+        options={{ title: 'NotificationDetailScreen', headerShown: false }}
+      />
+      <Stack.Screen
         name='BankCardScreen'
         options={{ title: 'BankCardScreen', headerShown: false }}
       />

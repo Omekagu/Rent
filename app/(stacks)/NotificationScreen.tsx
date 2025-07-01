@@ -276,7 +276,10 @@ export default function NotificationScreen () {
               </View>
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity
+              style={styles.item}
+              onPress={() => router.push('/(stacks)/ChatScreen')}
+            >
               <Image source={{ uri: item.avatar }} style={styles.avatar} />
               <View style={{ flex: 1, marginLeft: 10 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
