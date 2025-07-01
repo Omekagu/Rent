@@ -172,7 +172,7 @@ const CreatePropertyScreen: React.FC = () => {
                 onPress={handleAddFacility}
                 style={styles.addBtn}
               >
-                <Ionicons name='add-circle-outline' size={24} color='#61CE70' />
+                <Ionicons name='add-circle-outline' size={24} color='#fc8403' />
               </TouchableOpacity>
             </View>
 
@@ -262,7 +262,7 @@ const CreatePropertyScreen: React.FC = () => {
               <Text>Start Face Scan (Coming Soon)</Text>
             </TouchableOpacity>
             <Text style={{ fontSize: 12, marginBottom: 10 }}>
-              Ensure you're in good light with camera permission granted.
+              Ensure you are in good light with camera permission granted.
             </Text>
           </>
         )}
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   nextBtn: {
-    backgroundColor: '#61CE70',
+    backgroundColor: '#fc8403',
     paddingVertical: 14,
     borderRadius: 8,
     alignItems: 'center',
