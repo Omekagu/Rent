@@ -6,8 +6,8 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 export default function BankCardScreen () {
   const [paying, setPaying] = useState(false)
-  const [step, setStep] = useState(1) // 1: form, 2: loading, 3: success
-  const [amount] = useState(500) // Example amount, you can make this dynamic
+  const [step, setStep] = useState(1) //
+  const [amount] = useState(500)
 
   // Show the Paystack form when user presses "Pay with Card"
   const handlePay = () => {
@@ -25,11 +25,6 @@ export default function BankCardScreen () {
     }, 1500)
   }
 
-  //   const handlePaymentCancel = () => {
-  //     setPaying(false)
-  //   }
-
-  // Render steps
   return (
     <View style={styles.container}>
       {step === 1 && (
